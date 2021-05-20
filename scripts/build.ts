@@ -23,7 +23,7 @@ interface Args {
 		absPath = Path.resolve(process.cwd(), srcPath);
 		relPath = Path.relative(__dirname, absPath).replace(/\\/g, '/');
 	} else {
-		relPath = '../src/foo';
+		relPath = '../src/glsl';
 		absPath = Path.resolve(__dirname, relPath);
 	}
 
@@ -36,7 +36,7 @@ interface Args {
 		cli.err(err);
 	}
 
-	async function build(grammar: TMGrammar, outPath: string, name = 'foo') {
+	async function build(grammar: TMGrammar, outPath: string, name = 'glsl') {
 		let processed = toJson(grammar);
 		let content = JSON.stringify(processed, null, '\t');
 		let filePath = Path.resolve(outPath, `${name}.tmLanguage.json`);

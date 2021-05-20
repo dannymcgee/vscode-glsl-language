@@ -1,7 +1,7 @@
 {
-	"name": "vscode-foo-grammar",
-	"displayName": "Foo Grammar",
-	"description": "VSCode TextMate grammar for Foo",
+	"name": "vscode-glsl-grammar",
+	"displayName": "GLSL Grammar",
+	"description": "VSCode TextMate grammar for GLSL",
 	"version": "1.0.0",
 	"main": "index.js",
 	"author": "Danny McGee <dannymcgee@gmail.com>",
@@ -17,18 +17,28 @@
 	"contributes": {
 		"languages": [
 			{
-				"id": "foo",
-				"extensions": [
-					".foo"
+				"id": "glsl",
+				"aliases": [
+					"OpenGL Shading Language",
+					"GLSL"
 				],
-				"configuration": "./dist/foo.config.json"
+				"extensions": [
+					".glsl",
+					".vert",
+					".frag",
+					".tesc",
+					".tese",
+					".geom",
+					".comp"
+				],
+				"configuration": "./dist/glsl.config.json"
 			}
 		],
 		"grammars": [
 			{
-				"language": "foo",
-				"scopeName": "source.foo",
-				"path": "./dist/foo.tmLanguage.json"
+				"language": "glsl",
+				"scopeName": "source.glsl",
+				"path": "./dist/glsl.tmLanguage.json"
 			}
 		]
 	},
@@ -41,7 +51,7 @@
 		"test": "jest"
 	},
 	"activationEvents": [
-		"onLanguage:foo"
+		"onLanguage:glsl"
 	],
 	"devDependencies": {
 		"@types/fs-extra": "^9.0.4",

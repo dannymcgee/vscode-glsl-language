@@ -31,10 +31,10 @@ import * as tm from 'vscode-textmate';
 import * as path from 'path';
 import * as fs from 'fs';
 
-import tsGrammar from '../../foo';
+import tsGrammar from '../../glsl';
 import { TMGrammar } from '../../types';
 
-type FooCode = string;
+type GLSLCode = string;
 interface AnnotatedLine {
 	src: string;
 	tokens: tm.IToken[];
@@ -61,17 +61,17 @@ beforeAll(async () => {
 		onigLib,
 		// prettier-ignore
 		loadGrammar: (scope) => new Promise((resolve, reject) => {
-			if (scope !== 'source.foo')
-				reject(`Expected 'source.foo', received '${scope}'`);
+			if (scope !== 'source.glsl')
+				reject(`Expected 'source.glsl', received '${scope}'`);
 			resolve(rawGrammar);
 		}),
 	});
 
-	grammar = (await registry.loadGrammar('source.foo'))!;
+	grammar = (await registry.loadGrammar('source.glsl'))!;
 });
 
 expect.addSnapshotSerializer({
-	serialize(val: FooCode): string {
+	serialize(val: GLSLCode): string {
 		let tokens = getVSCodeTokens(val.replace(/\t/g, '    '));
 		let result: string[] = tokens.reduce<string[]>((accum, line) => {
 			accum.push('-> ' + line.src);
@@ -81,7 +81,7 @@ expect.addSnapshotSerializer({
 						startIndex,
 						endIndex,
 						// prettier-ignore
-						scopes: scopes.filter((scope) => !/^meta|^source\.foo$/.test(scope)),
+						scopes: scopes.filter((scope) => !/^meta|^source\.glsl$/.test(scope)),
 					}))
 					.filter((token) => token.scopes.length > 0);
 
@@ -101,7 +101,7 @@ expect.addSnapshotSerializer({
 		return '\n' + result.join('\n');
 	},
 
-	test(val: unknown): val is FooCode {
+	test(val: unknown): val is GLSLCode {
 		return true; // Just use this serializer for all snapshots
 	},
 });

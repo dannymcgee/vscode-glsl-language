@@ -10,7 +10,7 @@ module.exports = {
 
 		return path.resolve(
 			path.dirname(testPath),
-			`${basename}.foo` + snapshotExtension,
+			`${basename}.glsl` + snapshotExtension,
 		);
 	},
 
@@ -21,7 +21,7 @@ module.exports = {
 	resolveTestPath: (snapshotPath, snapshotExtension) => {
 		let basename = path
 			.basename(snapshotPath)
-			.replace(`.foo${snapshotExtension}`, '');
+			.replace(`.glsl${snapshotExtension}`, '');
 
 		return path.resolve(path.dirname(snapshotPath), `${basename}.spec.ts`);
 	},

@@ -2,8 +2,8 @@ import { TMGrammar } from '../types';
 import { identifier, punctuation, stringLiteral } from './repository';
 
 const grammar: TMGrammar = {
-	name: 'foo',
-	scopeName: 'source.foo',
+	name: 'OpenGL Shading Language',
+	scopeName: 'source.glsl',
 	patterns: [
 		{ include: '#stringLiteral' },
 		{ include: '#punctuation' },

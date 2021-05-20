@@ -1,11 +1,11 @@
-import * as Path from 'path';
-import { promises as fs } from 'fs';
+import * as Path from "path";
+import { promises as fs } from "fs";
 
-import cli from '../cli';
-import log from '../log';
-import { clean } from '../clean';
-import { processIndex, processRepo } from './processing';
-import { JsonGrammar, TMGrammarScope } from '../../src/types';
+import cli from "../cli";
+import log from "../log";
+import { clean } from "../clean";
+import { processIndex, processRepo } from "./processing";
+import { JsonGrammar, TMGrammarScope } from "../../src/types";
 
 interface Args {
 	default: string;
@@ -15,8 +15,8 @@ interface Args {
 (async function () {
 	let { default: path, out }: Args = cli.args();
 	if (!path) {
-		log.warn('TODO - print usage');
-		cli.err('Expected path to a grammar JSON file');
+		log.warn("TODO - print usage");
+		cli.err("Expected path to a grammar JSON file");
 	}
 
 	try {
@@ -25,7 +25,7 @@ interface Args {
 		cli.err(err);
 	}
 
-	async function decompile(path: string, out = 'out') {
+	async function decompile(path: string, out = "out") {
 		let file = Path.resolve(process.cwd(), path);
 		let outPath = Path.resolve(process.cwd(), out);
 
@@ -36,7 +36,7 @@ interface Args {
 		log.ok(`Parsed grammar for '${grammar.name}'`);
 
 		let repo: Map<string, TMGrammarScope> = undefined;
-		if ('repository' in grammar) {
+		if ("repository" in grammar) {
 			repo = await processRepo(outPath, grammar.repository);
 		}
 

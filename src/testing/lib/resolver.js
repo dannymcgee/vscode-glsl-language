@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
 	/**
@@ -6,7 +6,7 @@ module.exports = {
 	 * @param {string} snapshotExtension
 	 */
 	resolveSnapshotPath: (testPath, snapshotExtension) => {
-		let basename = path.basename(testPath).replace(/\.spec\.ts$/, '');
+		let basename = path.basename(testPath).replace(/\.spec\.ts$/, "");
 
 		return path.resolve(
 			path.dirname(testPath),
@@ -21,13 +21,13 @@ module.exports = {
 	resolveTestPath: (snapshotPath, snapshotExtension) => {
 		let basename = path
 			.basename(snapshotPath)
-			.replace(`.glsl${snapshotExtension}`, '');
+			.replace(`.glsl${snapshotExtension}`, "");
 
 		return path.resolve(path.dirname(snapshotPath), `${basename}.spec.ts`);
 	},
 
 	testPathForConsistencyCheck: path.resolve(
 		process.cwd(),
-		'src/testing/example.spec.ts',
+		"src/testing/example.spec.ts",
 	),
 };

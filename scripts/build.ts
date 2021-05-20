@@ -1,10 +1,10 @@
-import { promises as fs } from 'fs';
-import * as Path from 'path';
+import { promises as fs } from "fs";
+import * as Path from "path";
 
-import { JsonObject, TMGrammar } from '../src/types';
-import { clean } from './clean';
-import log from './log';
-import cli from './cli';
+import { JsonObject, TMGrammar } from "../src/types";
+import { clean } from "./clean";
+import log from "./log";
+import cli from "./cli";
 
 interface Args {
 	default: string;
@@ -15,15 +15,15 @@ interface Args {
 (async function () {
 	let { default: srcPath, name, out }: Args = cli.args();
 
-	let outPath = Path.resolve(process.cwd(), out ?? 'dist');
-	let relPath = '';
-	let absPath = '';
+	let outPath = Path.resolve(process.cwd(), out ?? "dist");
+	let relPath = "";
+	let absPath = "";
 
 	if (srcPath) {
 		absPath = Path.resolve(process.cwd(), srcPath);
-		relPath = Path.relative(__dirname, absPath).replace(/\\/g, '/');
+		relPath = Path.relative(__dirname, absPath).replace(/\\/g, "/");
 	} else {
-		relPath = '../src/glsl';
+		relPath = "../src/glsl";
 		absPath = Path.resolve(__dirname, relPath);
 	}
 
@@ -36,9 +36,9 @@ interface Args {
 		cli.err(err);
 	}
 
-	async function build(grammar: TMGrammar, outPath: string, name = 'glsl') {
+	async function build(grammar: TMGrammar, outPath: string, name = "glsl") {
 		let processed = toJson(grammar);
-		let content = JSON.stringify(processed, null, '\t');
+		let content = JSON.stringify(processed, null, "\t");
 		let filePath = Path.resolve(outPath, `${name}.tmLanguage.json`);
 
 		await clean(outPath);
@@ -50,7 +50,7 @@ interface Args {
 	function copyConfigs(srcPath: string, outPath: string) {
 		return new Promise<void>(async (resolve, reject) => {
 			let files = await fs.readdir(srcPath);
-			files = files.filter((file) => file.endsWith('json'));
+			files = files.filter((file) => file.endsWith("json"));
 
 			let pending = files.length;
 			let done = 0;

@@ -1,5 +1,5 @@
-import { promises as fs } from 'fs';
-import * as rimraf from 'rimraf';
+import { promises as fs } from "fs";
+import * as rimraf from "rimraf";
 
 export function clean(path: string) {
 	return new Promise<void>((resolve, reject) => {

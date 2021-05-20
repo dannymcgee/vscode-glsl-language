@@ -25,14 +25,14 @@ which is licensed as follows:
 
 */
 
-import { expect, beforeAll } from '@jest/globals';
-import { OnigScanner, OnigString, loadWASM } from 'vscode-oniguruma';
-import * as tm from 'vscode-textmate';
-import * as path from 'path';
-import * as fs from 'fs';
+import { expect, beforeAll } from "@jest/globals";
+import { OnigScanner, OnigString, loadWASM } from "vscode-oniguruma";
+import * as tm from "vscode-textmate";
+import * as path from "path";
+import * as fs from "fs";
 
-import tsGrammar from '../../glsl';
-import { TMGrammar } from '../../types';
+import tsGrammar from "../../glsl";
+import { TMGrammar } from "../../types";
 
 type GLSLCode = string;
 interface AnnotatedLine {
@@ -48,7 +48,7 @@ beforeAll(async () => {
 	const wasmBin = fs.readFileSync(
 		path.resolve(
 			process.cwd(),
-			'node_modules/vscode-oniguruma/release/onig.wasm',
+			"node_modules/vscode-oniguruma/release/onig.wasm",
 		),
 	).buffer;
 
@@ -67,38 +67,38 @@ beforeAll(async () => {
 		}),
 	});
 
-	grammar = (await registry.loadGrammar('source.glsl'))!;
+	grammar = (await registry.loadGrammar("source.glsl"))!;
 });
 
 expect.addSnapshotSerializer({
 	serialize(val: GLSLCode): string {
-		let tokens = getVSCodeTokens(val.replace(/\t/g, '    '));
+		let tokens = getVSCodeTokens(val.replace(/\t/g, "    "));
 		let result: string[] = tokens.reduce<string[]>((accum, line) => {
-			accum.push('-> ' + line.src);
+			accum.push("-> " + line.src);
 			if (line.src.trim().length) {
 				let tokens = line.tokens
 					.map(({ scopes, startIndex, endIndex }) => ({
 						startIndex,
 						endIndex,
 						// prettier-ignore
-						scopes: scopes.filter((scope) => !/^meta|^source\.glsl$/.test(scope)),
+						scopes: scopes.filter((scope) => !/^source\.glsl$/.test(scope)),
 					}))
 					.filter((token) => token.scopes.length > 0);
 
 				tokens.forEach((token) => {
 					accum.push(
-						' | ' +
-							' '.repeat(token.startIndex) +
-							'^'.repeat(token.endIndex - token.startIndex) +
-							' ' +
-							token.scopes.reverse().join('  '),
+						" | " +
+							" ".repeat(token.startIndex) +
+							"^".repeat(token.endIndex - token.startIndex) +
+							" " +
+							token.scopes.reverse().join("  "),
 					);
 				});
 			}
 			return accum;
 		}, []);
 
-		return '\n' + result.join('\n');
+		return "\n" + result.join("\n");
 	},
 
 	test(val: unknown): val is GLSLCode {
@@ -126,12 +126,12 @@ function processGrammar(grammar: TMGrammar): tm.IRawGrammar {
 	let processed = {} as any;
 
 	for (let [key, value] of Object.entries(grammar)) {
-		if (typeof value === 'string') {
+		if (typeof value === "string") {
 			processed[key] = value;
 		} else if (value instanceof RegExp) {
 			let source = value.source;
 			let flags = value.flags;
-			processed[key] = (flags ? `(?${flags})` : '') + source;
+			processed[key] = (flags ? `(?${flags})` : "") + source;
 		} else if (value instanceof Array) {
 			processed[key] = value.map(processGrammar);
 		} else {

@@ -1,5 +1,5 @@
-import * as Path from 'path';
-import { promises as fs } from 'fs';
+import * as Path from "path";
+import { promises as fs } from "fs";
 
 import {
 	JsonObject,
@@ -8,7 +8,7 @@ import {
 	TMGrammarScope,
 	JsonGrammarScope,
 	JsonGrammar,
-} from '../../src/types';
+} from "../../src/types";
 
 import {
 	assertType,
@@ -16,10 +16,10 @@ import {
 	isPatternsKey,
 	isRegexKey,
 	isStringKey,
-} from './type-guards';
+} from "./type-guards";
 
-import log from '../log';
-import fmt from './fmt';
+import log from "../log";
+import fmt from "./fmt";
 
 export async function processIndex(
 	outPath: string,
@@ -29,8 +29,8 @@ export async function processIndex(
 	let lines: string[] = [];
 	let repoNames = repository ? Array.from(repository.keys()) : [];
 
-	let typesPath = Path.resolve(process.cwd(), './src/types');
-	let typesPathRel = Path.relative(outPath, typesPath).replace(/\\/g, '/');
+	let typesPath = Path.resolve(process.cwd(), "./src/types");
+	let typesPathRel = Path.relative(outPath, typesPath).replace(/\\/g, "/");
 	lines.push(`import { TMGrammar } from '${typesPathRel}';\n`);
 
 	if (repoNames.length) {
@@ -46,25 +46,25 @@ export async function processIndex(
 		let value = grammar[key];
 
 		switch (key) {
-			case 'name':
-			case 'injectionSelector':
-			case 'scopeName': {
+			case "name":
+			case "injectionSelector":
+			case "scopeName": {
 				assertType<string>(value);
 				lines.push(`${key}: '${value}',`);
 
 				break;
 			}
-			case 'patterns': {
+			case "patterns": {
 				assertType<JsonGrammarScope[]>(value);
 				lines.push(`${key}: [`);
-				lines.push(value.map(processScope).map(printScope).join(',\n'));
+				lines.push(value.map(processScope).map(printScope).join(",\n"));
 				lines.push(`],`);
 
 				break;
 			}
-			case 'repository': {
+			case "repository": {
 				lines.push(`${key}: {`);
-				lines.push(repoNames.join(',\n'));
+				lines.push(repoNames.join(",\n"));
 				lines.push(`},`);
 
 				break;
@@ -96,8 +96,8 @@ export async function processIndex(
 	lines.push(`};\n`);
 	lines.push(`export default grammar;`);
 
-	let index = Path.resolve(outPath, 'index.ts');
-	let contents = await fmt.print(lines.join('\n'));
+	let index = Path.resolve(outPath, "index.ts");
+	let contents = await fmt.print(lines.join("\n"));
 
 	await fs.writeFile(index, contents);
 }
@@ -113,11 +113,11 @@ export async function processRepo(
 		log.ok(`Processed repo '${name}'`);
 	});
 
-	let repoPath = Path.resolve(outPath, 'repository');
-	let typesPath = Path.resolve(process.cwd(), './src/types');
-	let typesPathRel = Path.relative(repoPath, typesPath).replace(/\\/g, '/');
+	let repoPath = Path.resolve(outPath, "repository");
+	let typesPath = Path.resolve(process.cwd(), "./src/types");
+	let typesPathRel = Path.relative(repoPath, typesPath).replace(/\\/g, "/");
 
-	let index: string = '';
+	let index: string = "";
 	await fs.mkdir(repoPath);
 
 	// prettier-ignore
@@ -135,7 +135,7 @@ export async function processRepo(
 	}
 
 	index = await fmt.print(index);
-	await fs.writeFile(Path.resolve(repoPath, 'index.ts'), index);
+	await fs.writeFile(Path.resolve(repoPath, "index.ts"), index);
 
 	return repo;
 }
@@ -181,7 +181,7 @@ function processScope(scope: JsonGrammarScope): TMGrammarScope {
 }
 
 function printScope(scope: TMGrammarScope): string {
-	let result = ['{'];
+	let result = ["{"];
 
 	// prettier-ignore
 	Object.entries(scope).forEach(([key, value]) => {
@@ -214,13 +214,13 @@ function printScope(scope: TMGrammarScope): string {
 		result.push(`${line},`);
 	});
 
-	result.push('}');
+	result.push("}");
 
-	return result.join('\n');
+	return result.join("\n");
 }
 
 function printCaptures(captures: TMGrammarCaptures): string {
-	let result = ['{'];
+	let result = ["{"];
 
 	Object.keys(captures).forEach((key: any) => {
 		key = parseInt(key);
@@ -229,7 +229,7 @@ function printCaptures(captures: TMGrammarCaptures): string {
 		result.push(`${key}: { name: '${name}' },`);
 	});
 
-	result.push('}');
+	result.push("}");
 
-	return result.join('\n');
+	return result.join("\n");
 }

@@ -1,9 +1,9 @@
-export function isRegexKey(key: string): key is 'match' | 'begin' | 'end' {
+export function isRegexKey(key: string): key is "match" | "begin" | "end" {
 	return /^(match|begin|end)$/.test(key);
 }
 
-export function isPatternsKey(key: string): key is 'patterns' {
-	return key === 'patterns';
+export function isPatternsKey(key: string): key is "patterns" {
+	return key === "patterns";
 }
 
 // prettier-ignore

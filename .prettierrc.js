@@ -1,11 +1,11 @@
 module.exports = {
 	useTabs: true,
 	tabWidth: 4,
-	singleQuote: true,
-	trailingComma: 'all',
+	singleQuote: false,
+	trailingComma: "all",
 	overrides: [
 		{
-			files: '*.json',
+			files: "*.json",
 			options: {
 				printWidth: 55,
 			},

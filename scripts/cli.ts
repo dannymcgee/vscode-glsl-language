@@ -1,4 +1,4 @@
-import log from './log';
+import log from "./log";
 
 namespace cli {
 	export function err(err: Error | string) {

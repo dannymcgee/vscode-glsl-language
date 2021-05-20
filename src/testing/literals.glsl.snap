@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`literals should work 1`] = `
+
+-> int  a = 0xFFFFFFFF;
+ | ^^^ storage.type.primitive.int.glsl
+ |      ^ variable.other.glsl
+ |        ^ keyword.operator.assignment.glsl
+ |          ^^^^^^^^^^ constant.numeric.integer.hexadecimal.glsl  meta.literal.numeric.hexadecimal.glsl
+ |                    ^ punctuation.terminator.glsl
+-> int  b = 514;
+ | ^^^ storage.type.primitive.int.glsl
+ |      ^ variable.other.glsl
+ |        ^ keyword.operator.assignment.glsl
+ |          ^^^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |             ^ punctuation.terminator.glsl
+-> uint c = 0xFFFFFFFFu;
+ | ^^^^ storage.type.primitive.uint.glsl
+ |      ^ variable.other.glsl
+ |        ^ keyword.operator.assignment.glsl
+ |          ^^^^^^^^^^ constant.numeric.integer.hexadecimal.glsl  meta.literal.numeric.hexadecimal.glsl
+ |                    ^ keyword.numeric.suffix.unsigned.glsl  meta.literal.numeric.hexadecimal.glsl
+ |                     ^ punctuation.terminator.glsl
+-> uint d = 3u;
+ | ^^^^ storage.type.primitive.uint.glsl
+ |      ^ variable.other.glsl
+ |        ^ keyword.operator.assignment.glsl
+ |          ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |           ^ keyword.numeric.suffix.unsigned.glsl  meta.literal.numeric.decimal.glsl
+ |            ^ punctuation.terminator.glsl
+-> 
+-> float  a, b = 1.5;
+ | ^^^^^ storage.type.primitive.float.glsl
+ |        ^ variable.other.glsl
+ |         ^ punctuation.separator.comma.glsl
+ |           ^ variable.other.glsl
+ |             ^ keyword.operator.assignment.glsl
+ |               ^ constant.numeric.float.glsl  meta.literal.numeric.float.glsl
+ |                ^ punctuation.separator.numeric.decimal.glsl  meta.literal.numeric.float.glsl
+ |                 ^ constant.numeric.float.glsl  meta.literal.numeric.float.glsl
+ |                  ^ punctuation.terminator.glsl
+-> float  c = 1e45;
+ | ^^^^^ storage.type.primitive.float.glsl
+ |        ^ variable.other.glsl
+ |          ^ keyword.operator.assignment.glsl
+ |            ^ constant.numeric.float.glsl  meta.literal.numeric.float.glsl
+ |             ^ keyword.numeric.exponent.glsl  meta.literal.numeric.float.glsl
+ |              ^^ constant.numeric.float.glsl  meta.literal.numeric.float.glsl
+ |                ^ punctuation.terminator.glsl
+-> double d = 3.14159265359lf;
+ | ^^^^^^ storage.type.primitive.double.glsl
+ |        ^ variable.other.glsl
+ |          ^ keyword.operator.assignment.glsl
+ |            ^ constant.numeric.float.glsl  meta.literal.numeric.float.glsl
+ |             ^ punctuation.separator.numeric.decimal.glsl  meta.literal.numeric.float.glsl
+ |              ^^^^^^^^^^^ constant.numeric.float.glsl  meta.literal.numeric.float.glsl
+ |                         ^^ keyword.numeric.suffix.size.glsl  meta.literal.numeric.float.glsl
+ |                           ^ punctuation.terminator.glsl
+-> 
+`;

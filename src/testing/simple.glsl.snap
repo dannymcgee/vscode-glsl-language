@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`simple should work 1`] = `
+
+-> #version 440 core
+ | ^ punctuation.definition.directive.glsl  keyword.control.directive.version.glsl  keyword.control.directive.glsl
+ |  ^^^^^^^ keyword.control.directive.version.glsl  keyword.control.directive.glsl
+ |         ^^^^^^^^^ keyword.control.directive.glsl
+-> 
+-> #define PI 3.14;
+ | ^ punctuation.definition.directive.glsl  keyword.control.directive.define.glsl  meta.preprocessor.macro.glsl
+ |  ^^^^^^ keyword.control.directive.define.glsl  meta.preprocessor.macro.glsl
+ |        ^ meta.preprocessor.macro.glsl
+ |         ^^ entity.name.function.preprocessor.glsl  meta.preprocessor.macro.glsl
+ |           ^ meta.preprocessor.macro.glsl
+ |            ^ constant.numeric.float.glsl  meta.literal.numeric.float.glsl  meta.preprocessor.macro.glsl
+ |             ^ punctuation.separator.numeric.decimal.glsl  meta.literal.numeric.float.glsl  meta.preprocessor.macro.glsl
+ |              ^^ constant.numeric.float.glsl  meta.literal.numeric.float.glsl  meta.preprocessor.macro.glsl
+ |                ^ punctuation.terminator.glsl  meta.preprocessor.macro.glsl
+-> 
+-> void main() {
+ | ^^^^ storage.type.primitive.void.glsl
+ |      ^^^^ entity.name.function.glsl
+ |          ^ punctuation.brace.round.glsl
+ |           ^ punctuation.brace.round.glsl
+ |             ^ punctuation.brace.curly.glsl
+->     gl_FragColor = vec4(1,1,1,1);
+ |     ^^^^^^^^^^^^ variable.language.reserved.glsl
+ |                  ^ keyword.operator.assignment.glsl
+ |                    ^^^^ entity.name.type.other.glsl
+ |                        ^ punctuation.brace.round.glsl
+ |                         ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |                          ^ punctuation.separator.comma.glsl
+ |                           ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |                            ^ punctuation.separator.comma.glsl
+ |                             ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |                              ^ punctuation.separator.comma.glsl
+ |                               ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |                                ^ punctuation.brace.round.glsl
+ |                                 ^ punctuation.terminator.glsl
+-> }
+ | ^ punctuation.brace.curly.glsl
+-> 
+`;

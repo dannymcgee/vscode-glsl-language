@@ -1,0 +1,499 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`types should work 1`] = `
+
+-> void foo() {}
+ | ^^^^ storage.type.primitive.void.glsl
+ |      ^^^ entity.name.function.glsl
+ |         ^ punctuation.brace.round.glsl
+ |          ^ punctuation.brace.round.glsl
+ |            ^ punctuation.brace.curly.glsl
+ |             ^ punctuation.brace.curly.glsl
+-> 
+-> bool foo;
+ | ^^^^ storage.type.primitive.bool.glsl
+ |      ^^^ variable.other.glsl
+ |         ^ punctuation.terminator.glsl
+-> 
+-> int foo;
+ | ^^^ storage.type.primitive.int.glsl
+ |     ^^^ variable.other.glsl
+ |        ^ punctuation.terminator.glsl
+-> uint foo;
+ | ^^^^ storage.type.primitive.uint.glsl
+ |      ^^^ variable.other.glsl
+ |         ^ punctuation.terminator.glsl
+-> atomic_uint foo;
+ | ^^^^^^^^^^^ storage.type.primitive.atomic_uint.glsl
+ |             ^^^ variable.other.glsl
+ |                ^ punctuation.terminator.glsl
+-> 
+-> float foo;
+ | ^^^^^ storage.type.primitive.float.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> double foo;
+ | ^^^^^^ storage.type.primitive.double.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> 
+-> vec2 foo;
+ | ^^^^ storage.type.other.vec2.glsl
+ |      ^^^ variable.other.glsl
+ |         ^ punctuation.terminator.glsl
+-> vec2 foo;
+ | ^^^^ storage.type.other.vec2.glsl
+ |      ^^^ variable.other.glsl
+ |         ^ punctuation.terminator.glsl
+-> vec4 foo;
+ | ^^^^ storage.type.other.vec4.glsl
+ |      ^^^ variable.other.glsl
+ |         ^ punctuation.terminator.glsl
+-> dvec2 foo;
+ | ^^^^^ storage.type.other.dvec2.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> dvec3 foo;
+ | ^^^^^ storage.type.other.dvec3.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> dvec4 foo;
+ | ^^^^^ storage.type.other.dvec4.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> ivec2 foo;
+ | ^^^^^ storage.type.other.ivec2.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> ivec3 foo;
+ | ^^^^^ storage.type.other.ivec3.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> ivec4 foo;
+ | ^^^^^ storage.type.other.ivec4.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> 
+-> mat2 foo;
+ | ^^^^ storage.type.other.mat2.glsl
+ |      ^^^ variable.other.glsl
+ |         ^ punctuation.terminator.glsl
+-> mat3 foo;
+ | ^^^^ storage.type.other.mat3.glsl
+ |      ^^^ variable.other.glsl
+ |         ^ punctuation.terminator.glsl
+-> mat4 foo;
+ | ^^^^ storage.type.other.mat4.glsl
+ |      ^^^ variable.other.glsl
+ |         ^ punctuation.terminator.glsl
+-> mat2x2 foo;
+ | ^^^^^^ storage.type.other.mat2x2.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> mat2x3 foo;
+ | ^^^^^^ storage.type.other.mat2x3.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> mat2x4 foo;
+ | ^^^^^^ storage.type.other.mat2x4.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> mat3x2 foo;
+ | ^^^^^^ storage.type.other.mat3x2.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> mat3x3 foo;
+ | ^^^^^^ storage.type.other.mat3x3.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> mat3x4 foo;
+ | ^^^^^^ storage.type.other.mat3x4.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> mat4x2 foo;
+ | ^^^^^^ storage.type.other.mat4x2.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> mat4x3 foo;
+ | ^^^^^^ storage.type.other.mat4x3.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> mat4x4 foo;
+ | ^^^^^^ storage.type.other.mat4x4.glsl
+ |        ^^^ variable.other.glsl
+ |           ^ punctuation.terminator.glsl
+-> 
+-> dmat2 foo;
+ | ^^^^^ storage.type.other.dmat2.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> dmat3 foo;
+ | ^^^^^ storage.type.other.dmat3.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> dmat4 foo;
+ | ^^^^^ storage.type.other.dmat4.glsl
+ |       ^^^ variable.other.glsl
+ |          ^ punctuation.terminator.glsl
+-> dmat2x2 foo;
+ | ^^^^^^^ storage.type.other.dmat2x2.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> dmat2x3 foo;
+ | ^^^^^^^ storage.type.other.dmat2x3.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> dmat2x4 foo;
+ | ^^^^^^^ storage.type.other.dmat2x4.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> dmat3x2 foo;
+ | ^^^^^^^ storage.type.other.dmat3x2.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> dmat3x3 foo;
+ | ^^^^^^^ storage.type.other.dmat3x3.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> dmat3x4 foo;
+ | ^^^^^^^ storage.type.other.dmat3x4.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> dmat4x2 foo;
+ | ^^^^^^^ storage.type.other.dmat4x2.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> dmat4x3 foo;
+ | ^^^^^^^ storage.type.other.dmat4x3.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> dmat4x4 foo;
+ | ^^^^^^^ storage.type.other.dmat4x4.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> 
+-> sampler1D foo;
+ | ^^^^^^^^^ storage.type.other.sampler1D.glsl
+ |           ^^^ variable.other.glsl
+ |              ^ punctuation.terminator.glsl
+-> image1D foo;
+ | ^^^^^^^ storage.type.other.image1D.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> sampler2D foo;
+ | ^^^^^^^^^ storage.type.other.sampler2D.glsl
+ |           ^^^ variable.other.glsl
+ |              ^ punctuation.terminator.glsl
+-> image2D foo;
+ | ^^^^^^^ storage.type.other.image2D.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> sampler3D foo;
+ | ^^^^^^^^^ storage.type.other.sampler3D.glsl
+ |           ^^^ variable.other.glsl
+ |              ^ punctuation.terminator.glsl
+-> image3D foo;
+ | ^^^^^^^ storage.type.other.image3D.glsl
+ |         ^^^ variable.other.glsl
+ |            ^ punctuation.terminator.glsl
+-> 
+-> samplerCube foo;
+ | ^^^^^^^^^^^ storage.type.other.samplerCube.glsl
+ |             ^^^ variable.other.glsl
+ |                ^ punctuation.terminator.glsl
+-> imageCube foo;
+ | ^^^^^^^^^ storage.type.other.imageCube.glsl
+ |           ^^^ variable.other.glsl
+ |              ^ punctuation.terminator.glsl
+-> 
+-> sampler2DRect foo;
+ | ^^^^^^^^^^^^^ storage.type.other.sampler2DRect.glsl
+ |               ^^^ variable.other.glsl
+ |                  ^ punctuation.terminator.glsl
+-> image2DRect foo;
+ | ^^^^^^^^^^^ storage.type.other.image2DRect.glsl
+ |             ^^^ variable.other.glsl
+ |                ^ punctuation.terminator.glsl
+-> 
+-> sampler1DArray foo;
+ | ^^^^^^^^^^^^^^ storage.type.other.sampler1DArray.glsl
+ |                ^^^ variable.other.glsl
+ |                   ^ punctuation.terminator.glsl
+-> image1DArray foo;
+ | ^^^^^^^^^^^^ storage.type.other.image1DArray.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> 
+-> sampler2DArray foo;
+ | ^^^^^^^^^^^^^^ storage.type.other.sampler2DArray.glsl
+ |                ^^^ variable.other.glsl
+ |                   ^ punctuation.terminator.glsl
+-> image2DArray foo;
+ | ^^^^^^^^^^^^ storage.type.other.image2DArray.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> 
+-> samplerBuffer foo;
+ | ^^^^^^^^^^^^^ storage.type.other.samplerBuffer.glsl
+ |               ^^^ variable.other.glsl
+ |                  ^ punctuation.terminator.glsl
+-> imageBuffer foo;
+ | ^^^^^^^^^^^ storage.type.other.imageBuffer.glsl
+ |             ^^^ variable.other.glsl
+ |                ^ punctuation.terminator.glsl
+-> 
+-> sampler2DMS foo;
+ | ^^^^^^^^^^^ storage.type.other.sampler2DMS.glsl
+ |             ^^^ variable.other.glsl
+ |                ^ punctuation.terminator.glsl
+-> image2DMS foo;
+ | ^^^^^^^^^ storage.type.other.image2DMS.glsl
+ |           ^^^ variable.other.glsl
+ |              ^ punctuation.terminator.glsl
+-> 
+-> sampler2DMSArray foo;
+ | ^^^^^^^^^^^^^^^^ storage.type.other.sampler2DMSArray.glsl
+ |                  ^^^ variable.other.glsl
+ |                     ^ punctuation.terminator.glsl
+-> image2DMSArray foo;
+ | ^^^^^^^^^^^^^^ storage.type.other.image2DMSArray.glsl
+ |                ^^^ variable.other.glsl
+ |                   ^ punctuation.terminator.glsl
+-> 
+-> samplerCubeArray foo;
+ | ^^^^^^^^^^^^^^^^ storage.type.other.samplerCubeArray.glsl
+ |                  ^^^ variable.other.glsl
+ |                     ^ punctuation.terminator.glsl
+-> imageCubeArray foo;
+ | ^^^^^^^^^^^^^^ storage.type.other.imageCubeArray.glsl
+ |                ^^^ variable.other.glsl
+ |                   ^ punctuation.terminator.glsl
+-> 
+-> sampler1DShadow foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.sampler1DShadow.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> sampler2DShadow foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.sampler2DShadow.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> sampler2DRectShadow foo;
+ | ^^^^^^^^^^^^^^^^^^^ storage.type.other.sampler2DRectShadow.glsl
+ |                     ^^^ variable.other.glsl
+ |                        ^ punctuation.terminator.glsl
+-> sampler1DArrayShadow foo;
+ | ^^^^^^^^^^^^^^^^^^^^ storage.type.other.sampler1DArrayShadow.glsl
+ |                      ^^^ variable.other.glsl
+ |                         ^ punctuation.terminator.glsl
+-> sampler2DArrayShadow foo;
+ | ^^^^^^^^^^^^^^^^^^^^ storage.type.other.sampler2DArrayShadow.glsl
+ |                      ^^^ variable.other.glsl
+ |                         ^ punctuation.terminator.glsl
+-> samplerCubeShadow foo;
+ | ^^^^^^^^^^^^^^^^^ storage.type.other.samplerCubeShadow.glsl
+ |                   ^^^ variable.other.glsl
+ |                      ^ punctuation.terminator.glsl
+-> samplerCubeArrayShadow foo;
+ | ^^^^^^^^^^^^^^^^^^^^^^ storage.type.other.samplerCubeArrayShadow.glsl
+ |                        ^^^ variable.other.glsl
+ |                           ^ punctuation.terminator.glsl
+-> 
+-> isampler1D foo;
+ | ^^^^^^^^^^ storage.type.other.isampler1D.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> iimage1D foo;
+ | ^^^^^^^^ storage.type.other.iimage1D.glsl
+ |          ^^^ variable.other.glsl
+ |             ^ punctuation.terminator.glsl
+-> 
+-> isampler2D foo;
+ | ^^^^^^^^^^ storage.type.other.isampler2D.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> iimage2D foo;
+ | ^^^^^^^^ storage.type.other.iimage2D.glsl
+ |          ^^^ variable.other.glsl
+ |             ^ punctuation.terminator.glsl
+-> 
+-> isampler3D foo;
+ | ^^^^^^^^^^ storage.type.other.isampler3D.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> iimage3D foo;
+ | ^^^^^^^^ storage.type.other.iimage3D.glsl
+ |          ^^^ variable.other.glsl
+ |             ^ punctuation.terminator.glsl
+-> 
+-> isamplerCube foo;
+ | ^^^^^^^^^^^^ storage.type.other.isamplerCube.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> iimageCube foo;
+ | ^^^^^^^^^^ storage.type.other.iimageCube.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> 
+-> isampler2DRect foo;
+ | ^^^^^^^^^^^^^^ storage.type.other.isampler2DRect.glsl
+ |                ^^^ variable.other.glsl
+ |                   ^ punctuation.terminator.glsl
+-> iimage2DRect foo;
+ | ^^^^^^^^^^^^ storage.type.other.iimage2DRect.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> 
+-> isampler1DArray foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.isampler1DArray.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> iimage1DArray foo;
+ | ^^^^^^^^^^^^^ storage.type.other.iimage1DArray.glsl
+ |               ^^^ variable.other.glsl
+ |                  ^ punctuation.terminator.glsl
+-> 
+-> isampler2DArray foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.isampler2DArray.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> iimage2DArray foo;
+ | ^^^^^^^^^^^^^ storage.type.other.iimage2DArray.glsl
+ |               ^^^ variable.other.glsl
+ |                  ^ punctuation.terminator.glsl
+-> 
+-> isamplerBuffer foo;
+ | ^^^^^^^^^^^^^^ storage.type.other.isamplerBuffer.glsl
+ |                ^^^ variable.other.glsl
+ |                   ^ punctuation.terminator.glsl
+-> iimageBuffer foo;
+ | ^^^^^^^^^^^^ storage.type.other.iimageBuffer.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> 
+-> isampler2DMS foo;
+ | ^^^^^^^^^^^^ storage.type.other.isampler2DMS.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> iimage2DMS foo;
+ | ^^^^^^^^^^ storage.type.other.iimage2DMS.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> 
+-> isampler2DMSArray foo;
+ | ^^^^^^^^^^^^^^^^^ storage.type.other.isampler2DMSArray.glsl
+ |                   ^^^ variable.other.glsl
+ |                      ^ punctuation.terminator.glsl
+-> iimage2DMSArray foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.iimage2DMSArray.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> 
+-> isamplerCubeArray foo;
+ | ^^^^^^^^^^^^^^^^^ storage.type.other.isamplerCubeArray.glsl
+ |                   ^^^ variable.other.glsl
+ |                      ^ punctuation.terminator.glsl
+-> iimageCubeArray foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.iimageCubeArray.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> 
+-> usampler1D foo;
+ | ^^^^^^^^^^ storage.type.other.usampler1D.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> uimage1D foo;
+ | ^^^^^^^^ storage.type.other.uimage1D.glsl
+ |          ^^^ variable.other.glsl
+ |             ^ punctuation.terminator.glsl
+-> 
+-> usampler2D foo;
+ | ^^^^^^^^^^ storage.type.other.usampler2D.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> uimage2D foo;
+ | ^^^^^^^^ storage.type.other.uimage2D.glsl
+ |          ^^^ variable.other.glsl
+ |             ^ punctuation.terminator.glsl
+-> 
+-> usampler3D foo;
+ | ^^^^^^^^^^ storage.type.other.usampler3D.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> uimage3D foo;
+ | ^^^^^^^^ storage.type.other.uimage3D.glsl
+ |          ^^^ variable.other.glsl
+ |             ^ punctuation.terminator.glsl
+-> 
+-> usamplerCube foo;
+ | ^^^^^^^^^^^^ storage.type.other.usamplerCube.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> uimageCube foo;
+ | ^^^^^^^^^^ storage.type.other.uimageCube.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> 
+-> usampler2DRect foo;
+ | ^^^^^^^^^^^^^^ storage.type.other.usampler2DRect.glsl
+ |                ^^^ variable.other.glsl
+ |                   ^ punctuation.terminator.glsl
+-> uimage2DRect foo;
+ | ^^^^^^^^^^^^ storage.type.other.uimage2DRect.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> 
+-> usampler1DArray foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.usampler1DArray.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> uimage1DArray foo;
+ | ^^^^^^^^^^^^^ storage.type.other.uimage1DArray.glsl
+ |               ^^^ variable.other.glsl
+ |                  ^ punctuation.terminator.glsl
+-> 
+-> usampler2DArray foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.usampler2DArray.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> uimage2DArray foo;
+ | ^^^^^^^^^^^^^ storage.type.other.uimage2DArray.glsl
+ |               ^^^ variable.other.glsl
+ |                  ^ punctuation.terminator.glsl
+-> 
+-> usamplerBuffer foo;
+ | ^^^^^^^^^^^^^^ storage.type.other.usamplerBuffer.glsl
+ |                ^^^ variable.other.glsl
+ |                   ^ punctuation.terminator.glsl
+-> uimageBuffer foo;
+ | ^^^^^^^^^^^^ storage.type.other.uimageBuffer.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> 
+-> usampler2DMS foo;
+ | ^^^^^^^^^^^^ storage.type.other.usampler2DMS.glsl
+ |              ^^^ variable.other.glsl
+ |                 ^ punctuation.terminator.glsl
+-> uimage2DMS foo;
+ | ^^^^^^^^^^ storage.type.other.uimage2DMS.glsl
+ |            ^^^ variable.other.glsl
+ |               ^ punctuation.terminator.glsl
+-> 
+-> usampler2DMSArray foo;
+ | ^^^^^^^^^^^^^^^^^ storage.type.other.usampler2DMSArray.glsl
+ |                   ^^^ variable.other.glsl
+ |                      ^ punctuation.terminator.glsl
+-> uimage2DMSArray foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.uimage2DMSArray.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> 
+-> usamplerCubeArray foo;
+ | ^^^^^^^^^^^^^^^^^ storage.type.other.usamplerCubeArray.glsl
+ |                   ^^^ variable.other.glsl
+ |                      ^ punctuation.terminator.glsl
+-> uimageCubeArray foo;
+ | ^^^^^^^^^^^^^^^ storage.type.other.uimageCubeArray.glsl
+ |                 ^^^ variable.other.glsl
+ |                    ^ punctuation.terminator.glsl
+-> 
+`;

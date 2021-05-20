@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`comments should work 1`] = `
+
+-> // This is a simple line comment
+ | ^^ punctuation.definition.comment.glsl  comment.line.glsl
+ |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.glsl
+-> int foo = 1;
+ | ^^^ storage.type.primitive.int.glsl
+ |     ^^^ variable.other.glsl
+ |         ^ keyword.operator.assignment.glsl
+ |           ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |            ^ punctuation.terminator.glsl
+-> 
+-> // This is a line comment that's \\
+ | ^^ punctuation.definition.comment.glsl  comment.line.glsl
+ |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.glsl
+-> confusingly broken onto multiple lines with a backslash
+ | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.glsl
+-> int bar = 2;
+ | ^^^ storage.type.primitive.int.glsl
+ |     ^^^ variable.other.glsl
+ |         ^ keyword.operator.assignment.glsl
+ |           ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |            ^ punctuation.terminator.glsl
+-> 
+-> /*
+ | ^^ punctuation.definition.comment.begin.glsl  comment.block.glsl
+-> This is
+ | ^^^^^^^^ comment.block.glsl
+-> a block comment
+ | ^^^^^^^^^^^^^^^^ comment.block.glsl
+-> */
+ | ^^ punctuation.definition.comment.end.glsl  comment.block.glsl
+-> int baz = 3;
+ | ^^^ storage.type.primitive.int.glsl
+ |     ^^^ variable.other.glsl
+ |         ^ keyword.operator.assignment.glsl
+ |           ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |            ^ punctuation.terminator.glsl
+-> 
+-> /**
+ | ^^^ punctuation.definition.comment.begin.glsl  comment.block.documentation.glsl
+->  * This is a documentation comment
+ | ^^^ punctuation.definition.comment.glsl  comment.block.documentation.glsl
+ |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.glsl
+->  *
+ | ^^^ punctuation.definition.comment.glsl  comment.block.documentation.glsl
+->  * Here are some bullet points:
+ | ^^^ punctuation.definition.comment.glsl  comment.block.documentation.glsl
+ |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.glsl
+->  *   * Lorem ipsum
+ | ^^^ punctuation.definition.comment.glsl  comment.block.documentation.glsl
+ |    ^^^^^^^^^^^^^^^^ comment.block.documentation.glsl
+->  *   * Dolor sit amet
+ | ^^^ punctuation.definition.comment.glsl  comment.block.documentation.glsl
+ |    ^^^^^^^^^^^^^^^^^^^ comment.block.documentation.glsl
+->  *   * Consectetur adipiscing elit
+ | ^^^ punctuation.definition.comment.glsl  comment.block.documentation.glsl
+ |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.glsl
+->  */
+ | ^ comment.block.documentation.glsl
+ |  ^^ punctuation.definition.comment.end.glsl  comment.block.documentation.glsl
+-> void main() {
+ | ^^^^ storage.type.primitive.void.glsl
+ |      ^^^^ entity.name.function.glsl
+ |          ^ punctuation.brace.round.glsl
+ |           ^ punctuation.brace.round.glsl
+ |             ^ punctuation.brace.curly.glsl
+->     gl_FragColor = vec4(1,1,1,1);
+ |     ^^^^^^^^^^^^ variable.language.reserved.glsl
+ |                  ^ keyword.operator.assignment.glsl
+ |                    ^^^^ entity.name.type.other.glsl
+ |                        ^ punctuation.brace.round.glsl
+ |                         ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |                          ^ punctuation.separator.comma.glsl
+ |                           ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |                            ^ punctuation.separator.comma.glsl
+ |                             ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |                              ^ punctuation.separator.comma.glsl
+ |                               ^ constant.numeric.integer.decimal.glsl  meta.literal.numeric.decimal.glsl
+ |                                ^ punctuation.brace.round.glsl
+ |                                 ^ punctuation.terminator.glsl
+-> }
+ | ^ punctuation.brace.curly.glsl
+-> 
+`;

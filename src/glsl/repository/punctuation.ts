@@ -1,34 +1,38 @@
-import { TMGrammarScope } from '../../types';
+import { TMGrammarScope } from "../../types";
 
 export const punctuation: TMGrammarScope = {
 	patterns: [
 		{
 			match: /[()]/,
-			name: 'punctuation.brace.round.glsl',
+			name: "punctuation.brace.round.glsl",
 		},
 		{
 			match: /[{}]/,
-			name: 'punctuation.brace.curly.glsl',
+			name: "punctuation.brace.curly.glsl",
 		},
 		{
 			match: /[\[\]]/,
-			name: 'punctuation.brace.square.glsl',
+			name: "punctuation.brace.square.glsl",
 		},
 		{
 			match: /,/,
-			name: 'punctuation.separator.comma.glsl',
+			name: "punctuation.separator.comma.glsl",
 		},
 		{
 			match: /:/,
-			name: 'punctuation.separator.key-value.glsl',
+			name: "punctuation.separator.key-value.glsl",
 		},
 		{
 			match: /\./,
-			name: 'punctuation.accessor.glsl',
+			name: "punctuation.accessor.glsl",
 		},
 		{
 			match: /;/,
-			name: 'punctuation.terminator.glsl',
+			name: "punctuation.terminator.glsl",
+		},
+		{
+			match: /\\/,
+			name: "punctuation.whitespace.glsl",
 		},
 	],
 };

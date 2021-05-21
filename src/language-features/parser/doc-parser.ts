@@ -140,16 +140,6 @@ export class DocParser {
 			+ `, but received ${this.current.type} : '${this.current.data}'`);
 	}
 
-	private findNext(type: TokenType, data?: string): Token|null {
-		for (let i = this._ptr; i < this._tokens.length; i++) {
-			let tok = this._tokens[i];
-			if (tok.type === type && tok.data === data) {
-				return tok;
-			}
-		}
-		return null;
-	}
-
 	private pushScope(token: Token) {
 		let child = this.scope.addChild(token.range.start);
 		this._scopes.push(child);

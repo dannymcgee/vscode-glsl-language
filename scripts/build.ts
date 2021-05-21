@@ -50,31 +50,50 @@ interface Args {
 	function copyConfigs(srcPath: string, outPath: string) {
 		return new Promise<void>(async (resolve, reject) => {
 			let files = await fs.readdir(srcPath);
-			files = files.filter((file) => file.endsWith("json"));
+			files = files.filter((file) => /(json|config\.ts)$/.test(file));
 
 			let pending = files.length;
 			let done = 0;
 
 			if (!pending) resolve();
 
-			files.forEach((file) => {
+			files.forEach(async (file) => {
 				let dest = Path.resolve(outPath, file);
 				file = Path.resolve(srcPath, file);
 
-				fs.copyFile(file, dest)
-					.catch(reject)
-					.then(() => {
-						log.ok(`Copied '${file}' -> '${dest}'`);
-						if (++done === pending) resolve();
-					});
+				if (file.endsWith("json")) {
+					fs.copyFile(file, dest)
+						.catch(reject)
+						.then(() => {
+							log.ok(`Copied '${file}' -> '${dest}'`);
+							if (++done === pending) resolve();
+						});
+				} else {
+					let config = (await import(file)).default;
+					config = toJson(config);
+					dest = dest.replace(/\.ts$/, ".json");
+
+					fs.writeFile(dest, JSON.stringify(config, null, "\t"))
+						.catch(reject)
+						.then(() => {
+							log.ok(`Copied '${file}' -> '${dest}'`);
+							if (++done === pending) resolve();
+						});
+				}
 			});
 		});
 	}
 
-	function toJson(grammar: TMGrammar): JsonObject {
+	// prettier-ignore
+	function toJson(obj: any): any {
+		if (/^(string|number|boolean)$/.test(typeof obj))
+			return obj;
+
+		if (Array.isArray(obj))
+			return obj.map(toJson);
+
 		let processed: JsonObject = {};
-		for (let [key, value] of Object.entries(grammar)) {
-			// prettier-ignore
+		for (let [key, value] of Object.entries(obj)) {
 			if (typeof value === 'string')
 				processed[key] = value;
 			else if (value instanceof RegExp)

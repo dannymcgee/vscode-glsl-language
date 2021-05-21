@@ -27,9 +27,12 @@ export class Decl {
 		let name = this.type.charAt(0).toUpperCase() + this.type.slice(1);
 
 		let result = `${name}Decl {\n`;
+		let start = this.token.range.start;
+		let end = this.token.range.end;
+
 		result += [
-			`	start: ${this.token.line}:${this.token.column - this.token.data.length + 1}`,
-			`	end: ${this.token.line}:${this.token.column + 1}`,
+			`	start: ${start.line + 1}:${start.character + 1}`,
+			`	end: ${end.line + 1}:${end.character + 1}`,
 			`}`
 		]
 			.map(line => pre + line)

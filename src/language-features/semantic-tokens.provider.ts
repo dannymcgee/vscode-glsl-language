@@ -32,13 +32,7 @@ export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
 			.filter(tok => tok.type === TokenType.Ident)
 			.forEach(tok => {
 				if (!idents.has(tok.data)) return;
-
-				let range = new Range(
-					new Position(tok.line-1, tok.column-tok.data.length),
-					new Position(tok.line-1, tok.column),
-				);
-
-				builder.push(range, idents.get(tok.data));
+				builder.push(tok.range, idents.get(tok.data));
 			});
 
 		return builder.build();

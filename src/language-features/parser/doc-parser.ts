@@ -1,5 +1,3 @@
-import { Position } from "vscode";
-
 import { Token, TokenType } from "../lexer";
 import { Decl } from "./declaration";
 import { regex } from "./regex";
@@ -155,14 +153,12 @@ export class DocParser {
 	}
 
 	private pushScope(token: Token) {
-		let start = new Position(token.line-1, token.column);
-		let child = this.scope.addChild(start);
+		let child = this.scope.addChild(token.range.start);
 		this._scopes.push(child);
 	}
 
 	private popScope(token: Token) {
-		let end = new Position(token.line-1, token.column-token.data.length);
-		this.scope.close(end);
+		this.scope.close(token.range.end);
 		this._scopes.pop();
 	}
 }

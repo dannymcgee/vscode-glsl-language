@@ -82,10 +82,8 @@ export class DocParser {
 		let func = this.consume(TokenType.Ident);
 		this.scope.add(func.data, Decl.func(func));
 
-		let open = this.findNext(TokenType.Operator, "{");
+		let open = this.consume(TokenType.Operator, "(");
 		this.pushScope(open);
-
-		this.consume(TokenType.Operator, "(");
 
 		while (!this.check(TokenType.Operator, ")")) {
 			if (this.check(TokenType.Operator, ","))

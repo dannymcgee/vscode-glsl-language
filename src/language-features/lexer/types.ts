@@ -31,4 +31,5 @@ export interface Token {
 	type: TokenType;
 	data: string;
 	range: Range;
+	toString(): string;
 }

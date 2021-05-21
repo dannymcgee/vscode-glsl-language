@@ -1,25 +1,26 @@
 import { Token } from "../lexer";
+import { SemanticToken } from "../semantic-tokens.legend";
 
 export class Decl {
 	private constructor(
 		public token: Token,
-		public type: string,
+		public type: SemanticToken,
 	) {}
 
 	static macro(token: Token): Decl {
-		return new Decl(token, "macro");
+		return new Decl(token, SemanticToken.Macro);
 	}
 
 	static func(token: Token): Decl {
-		return new Decl(token, "function");
+		return new Decl(token, SemanticToken.Function);
 	}
 
 	static param(token: Token): Decl {
-		return new Decl(token, "param");
+		return new Decl(token, SemanticToken.Param);
 	}
 
 	static variable(token: Token): Decl {
-		return new Decl(token, "variable");
+		return new Decl(token, SemanticToken.Variable);
 	}
 
 	print(depth = 0): string {

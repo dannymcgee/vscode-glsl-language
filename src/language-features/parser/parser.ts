@@ -20,4 +20,23 @@ export namespace parser {
 
 		return scope;
 	}
+
+	export function getScope(doc: TextDocument, range: Range): Scope|null {
+		let scope = map.get(doc.uri);
+		if (!scope) return null;
+
+		while (scope.children.length) {
+			let candidates = scope.children.filter(ch => ch.range.contains(range));
+			if (candidates.length > 1) throw new Error(
+				`Multiple candidates found for range ${range.start.line}:${range.start.character}`
+				+ ` - ${range.end.line}:${range.end.character}`
+			);
+
+			if (!candidates.length) break;
+
+			scope = candidates[0];
+		}
+
+		return scope;
+	}
 }

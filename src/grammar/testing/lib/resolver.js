@@ -10,7 +10,7 @@ module.exports = {
 
 		return path.resolve(
 			path.dirname(testPath),
-			`${basename}.glsl` + snapshotExtension,
+			`${basename}.glsl${snapshotExtension}`,
 		);
 	},
 

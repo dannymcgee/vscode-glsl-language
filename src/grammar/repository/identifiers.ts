@@ -1,5 +1,5 @@
-import { TMGrammarScope } from "../../types";
-import { regex } from "../../utility";
+import { TMGrammarScope } from "../types";
+import { regex } from "../utility";
 import { IDENT, TYPE_SAMPLER, TYPE_SIMPLE, TYPE_STRUCT } from "../patterns";
 
 export const identifier: TMGrammarScope = {

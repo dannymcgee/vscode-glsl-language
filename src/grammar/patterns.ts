@@ -1,4 +1,4 @@
-import { regex } from "../utility";
+import { regex } from "./utility";
 
 export const IDENT = /[a-zA-Z][_a-zA-Z0-9]*/;
 export const EOL = /(?<!\\)(?=\n)/;

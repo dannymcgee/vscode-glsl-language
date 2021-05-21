@@ -1,4 +1,4 @@
-import { TMGrammarScope } from "../../types";
+import { TMGrammarScope } from "../types";
 
 export const operator: TMGrammarScope = {
 	patterns: [

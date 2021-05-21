@@ -5,8 +5,8 @@ module.exports = {
 			tsconfig: "tsconfig.spec.json",
 		},
 	},
-	setupFilesAfterEnv: ["<rootDir>/src/testing/lib/serializers.ts"],
+	setupFilesAfterEnv: ["<rootDir>/src/grammar/testing/lib/serializers.ts"],
 	testEnvironment: "node",
 	rootDir: ".",
-	snapshotResolver: "<rootDir>/src/testing/lib/resolver.js",
+	snapshotResolver: "<rootDir>/src/grammar/testing/lib/resolver.js",
 };

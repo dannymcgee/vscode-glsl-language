@@ -3,7 +3,7 @@
 	"include": ["src/**/*.ts", "scripts/*.ts"],
 	"exclude": [
 		"node_modules",
-		"src/testing",
+		"src/**/testing",
 		"src/**/*.spec.ts"
 	]
 }

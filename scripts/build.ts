@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import * as Path from "path";
 
-import { JsonObject, TMGrammar } from "../src/types";
+import { JsonObject, TMGrammar } from "../src/grammar/types";
 import { clean } from "./clean";
 import log from "./log";
 import cli from "./cli";
@@ -23,7 +23,7 @@ interface Args {
 		absPath = Path.resolve(process.cwd(), srcPath);
 		relPath = Path.relative(__dirname, absPath).replace(/\\/g, "/");
 	} else {
-		relPath = "../src/glsl";
+		relPath = "../src/grammar";
 		absPath = Path.resolve(__dirname, relPath);
 	}
 

@@ -1,4 +1,4 @@
-import { TMGrammar } from "../types";
+import { TMGrammar } from "./types";
 import {
 	comment,
 	identifier,

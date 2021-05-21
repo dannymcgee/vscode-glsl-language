@@ -31,7 +31,7 @@ import * as tm from "vscode-textmate";
 import * as path from "path";
 import * as fs from "fs";
 
-import tsGrammar from "../../glsl";
+import tsGrammar from "../../";
 import { TMGrammar } from "../../types";
 
 type GLSLCode = string;

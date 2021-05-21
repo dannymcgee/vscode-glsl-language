@@ -1,5 +1,5 @@
-import { TMGrammarScope } from "../../types";
-import { regex } from "../../utility";
+import { TMGrammarScope } from "../types";
+import { regex } from "../utility";
 import {
 	EOL,
 	IDENT,

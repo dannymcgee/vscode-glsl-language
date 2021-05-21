@@ -1,7 +1,6 @@
 import { languages, ExtensionContext } from "vscode";
 
-import { SemanticTokensProvider } from "./semantic-tokens.provider";
-import { SEMANTIC_TOKENS_LEGEND } from "./semantic-tokens.legend";
+import SemanticTokensProvider, { SEMANTIC_TOKENS_LEGEND } from "./semantic-tokens";
 
 export function activate(ctx: ExtensionContext) {
 	console.log("GLSL Language activated!");

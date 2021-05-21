@@ -1,5 +1,5 @@
 import { Token } from "../lexer";
-import { SemanticToken } from "../semantic-tokens.legend";
+import { SemanticToken } from "../semantic-tokens";
 
 export class Decl {
 	private constructor(

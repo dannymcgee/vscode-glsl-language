@@ -6,9 +6,9 @@ import {
 	TextDocument,
 } from "vscode";
 
-import lexer, { TokenType } from "./lexer";
-import parser from "./parser";
-import { SEMANTIC_TOKENS_LEGEND } from "./semantic-tokens.legend";
+import lexer, { TokenType } from "../lexer";
+import parser from "../parser";
+import { SEMANTIC_TOKENS_LEGEND } from "./legend";
 
 export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
 	provideDocumentSemanticTokens(

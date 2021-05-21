@@ -31,10 +31,14 @@ export const identifier: TMGrammarScope = {
 			},
 		},
 		{
-			match: /\b([a-zA-Z][_a-zA-Z0-9]*)\b/,
+			match: regex`/(?<=\.)(${IDENT})/`,
 			captures: {
-				1: { name: "variable.other.glsl" },
+				1: { name: "variable.property.glsl" },
 			},
+		},
+		{
+			match: IDENT,
+			name: "variable.other.glsl",
 		},
 	],
 };

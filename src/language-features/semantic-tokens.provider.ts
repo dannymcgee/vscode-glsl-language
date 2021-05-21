@@ -8,19 +8,26 @@ import {
 	TextDocument,
 } from "vscode";
 
+import lexer, { Token, TokenType } from "./lexer";
+import parser from "./parser";
 import { SemanticToken, SEMANTIC_TOKENS_LEGEND } from "./semantic-tokens.legend";
-import { Token, tokenString, TokenType } from "./tokenizer";
 
 export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
 	provideDocumentSemanticTokens(
 		document: TextDocument,
 		token: CancellationToken,
 	): SemanticTokens {
+
 		let src = document.getText();
-		let tokens = tokenString(src, { version: "440 core" });
-		let idents = parse(tokens);
+		let tokens = lexer.scan(src, { version: "440 core" });
+		let scope = parser.parse(document, tokens);
+
+		console.log("\n" + scope.print());
+
+		let idents = parse(tokens); // TODO
 		let builder = new SemanticTokensBuilder(SEMANTIC_TOKENS_LEGEND);
 
+		// TODO
 		tokens
 			.filter(tok => tok.type === TokenType.Ident)
 			.forEach(tok => {

@@ -1,10 +1,8 @@
-import * as _tokenStream from "glsl-tokenizer/stream";
-import * as _tokenString from "glsl-tokenizer/string";
 import * as stream from "stream";
 
 // http://stack.gl/packages/#stackgl/glsl-tokenizer
 
-interface Fn<Args extends any[] = [], Return = void> {
+export interface Fn<Args extends any[] = [], Return = void> {
 	(...args: Args): Return;
 }
 
@@ -34,7 +32,7 @@ export interface Token {
 	column: number;
 }
 
-type TokenStream = Omit<stream.Duplex, "on"> & {
+export type TokenStream = Omit<stream.Duplex, "on"> & {
 	on(event: "close", listener: () => void): TokenStream;
 	on(event: "data", listener: (token: Token) => void): TokenStream;
 	on(event: "end", listener: () => void): TokenStream;
@@ -43,6 +41,3 @@ type TokenStream = Omit<stream.Duplex, "on"> & {
 	on(event: "readable", listener: () => void): TokenStream;
 	on(event: "resume", listener: () => void): TokenStream;
 };
-
-export const tokenStream: Fn<[Options], TokenStream> = _tokenStream;
-export const tokenString: Fn<[string, Options], Token[]> = _tokenString;

@@ -11,7 +11,7 @@
 	"files": [],
 	"include": [],
 	"references": [
-		{ "path": "./tsconfig.main.json" },
+		{ "path": "./tsconfig.editor.json" },
 		{ "path": "./tsconfig.spec.json" },
 		{ "path": "./tsconfig.tools.json" }
 	]

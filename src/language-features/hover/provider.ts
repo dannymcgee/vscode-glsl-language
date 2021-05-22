@@ -24,7 +24,7 @@ export class HoverProvider implements vscode.HoverProvider {
 		if (match?.type !== TokenType.Ident) return;
 
 		let scope = parser.getScope(doc, pos);
-		let decl = scope.get(match.data);
+		let decl = scope?.get(match.data);
 
 		if (!decl) return;
 

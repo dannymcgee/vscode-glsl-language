@@ -85,6 +85,10 @@ export class DocParser {
 			valueType = TokenType.Float;
 		} else if (IDENT.test(match[2])) {
 			valueType = TokenType.Ident;
+		} else {
+			throw new Error(
+				`Expected an integer, float, or identifier, but found ${match[2]}`
+			);
 		}
 		let value = new Token(valueType, match[2], valueRange);
 
@@ -101,7 +105,7 @@ export class DocParser {
 			ident,
 			value,
 			line.replace(/\s+/g, " "),
-			docComment
+			docComment!
 		));
 		this.advance();
 	}
@@ -127,33 +131,37 @@ export class DocParser {
 
 		let funcToken = this.consume(TokenType.Ident);
 		let params: ParamDecl[] = [];
-		// this.scope.add(func.data, new FuncDecl(func));
 
 		let open = this.consume(TokenType.Operator, "(");
 		this.pushScope(open);
 
 		while (!this.check(TokenType.Operator, ")")) {
-			if (this.check(TokenType.Operator, ","))
+			if (this.check(TokenType.Operator, ",")) {
 				this.advance();
 
-			let modifier: Token;
-			if (!this.checkNext(TokenType.Ident)) {
+				// Double-check in case that was a trailing comma
+				if (this.check(TokenType.Operator, ")"))
+					break;
+			}
+
+			let modifiers: Token[] = [];
+			while (!this.checkNext(TokenType.Ident)) {
 				if (this.check(TokenType.Keyword)) {
-					modifier = this.consume(TokenType.Keyword)
+					modifiers.push(this.consume(TokenType.Keyword));
 				} else {
-					this.advance();
+					this.expect(`modifier, type, or parameter name`);
 				}
 			}
 
 			let type = this.consume(TokenType.Keyword);
 			let token = this.consume(TokenType.Ident);
-			let param = new ParamDecl(token, type, modifier);
+			let param = new ParamDecl(token, type, modifiers);
 
 			params.push(param);
 			this.scope.add(token.data, param);
 		}
 
-		let func = new FuncDecl(funcToken, returnType, params, docComment);
+		let func = new FuncDecl(funcToken, returnType, params, docComment!);
 		this.outer.add(funcToken.data, func);
 
 		this.consume(TokenType.Operator, ")");
@@ -169,7 +177,7 @@ export class DocParser {
 		}
 		let ident = this.consume(TokenType.Ident);
 
-		this.scope.add(ident.data, new VariableDecl(ident, type, modifier));
+		this.scope.add(ident.data, new VariableDecl(ident, type, modifier!));
 	}
 
 	private advance() {
@@ -192,10 +200,8 @@ export class DocParser {
 			return this.prev;
 		}
 
-		throw new Error((data
-			? `Expected token type ${type} with data '${data}'`
-			: `Expected token type ${type}`)
-			+ `, but received ${this.current.type} : '${this.current.data}'`);
+		if (data) this.expect(`${type} '${data}'`)
+		else this.expect(type);
 	}
 
 	private pushScope(token: Token) {
@@ -206,5 +212,22 @@ export class DocParser {
 	private popScope(token: Token) {
 		this.scope.close(token.range.end);
 		this._scopes.pop();
+	}
+
+	private logCursor() {
+		console.log(`\n` +
+			`${this.prev.data} ${this.current.data} ${this.next.data}\n` +
+			` `.repeat(this.prev.data.length) + ` ^`
+		)
+	}
+
+	private expect(expectation: string): never {
+		let { type, data, range } = this.current;
+		let { start } = range;
+
+		throw new Error(
+			`Expected ${expectation}, but found ${type} '${data}' `
+				+ `(${start.line + 1}:${start.character + 1})`
+		);
 	}
 }

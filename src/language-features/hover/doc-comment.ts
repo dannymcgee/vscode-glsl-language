@@ -35,13 +35,13 @@ export function parseDocComment(
 		let paramsBlock = "";
 
 		content
-			.filter(line => /^@\s*param/.test(line.trim()))
+			.filter(line => /^\s*@param\s+(\S+)/.test(line.trim()))
 			.map((line, idx) => {
 				let match = line.match(/^\s*@param\s+(\S+)(?:\s+(.+)$)?/);
 				return {
 					idx,
-					name: match[1],
-					description: match[2],
+					name: match![1],
+					description: match![2],
 				};
 			})
 			.forEach(({ idx, name, description }) => {
@@ -51,8 +51,10 @@ export function parseDocComment(
 				consumedIdxes.push(idx);
 
 				paramsBlock += ` - `;
-				if (decl.modifier)
-					paramsBlock += `_${decl.modifier.data}_ `;
+				if (decl.modifiers.length)
+					paramsBlock += `_${
+						decl.modifiers.map(mod => mod.data).join(" ")
+					}_ `;
 				paramsBlock += `_${decl.type.data}_&nbsp;&nbsp;`;
 				paramsBlock += `**${decl.token.data}**`
 					+ (description
@@ -73,7 +75,7 @@ export function parseDocComment(
 	let codeBlock = false;
 
 	while (content.length) {
-		let line = content.shift();
+		let line = content.shift()!;
 
 		if (line.trim().startsWith("```")) {
 			codeBlock = !codeBlock;

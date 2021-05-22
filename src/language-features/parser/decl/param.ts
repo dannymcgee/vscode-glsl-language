@@ -8,12 +8,14 @@ export class ParamDecl extends Decl {
 	constructor(
 		readonly token: Token,
 		readonly type: Token,
-		readonly modifier?: Token,
+		readonly modifiers: Token[] = [],
 	) {
 		super(token);
 
 		let content = "";
-		if (modifier) content += modifier.data + " ";
+		if (modifiers.length) {
+			content += modifiers.map(mod => mod.data).join(" ") + " ";
+		}
 		content += `${type.data} ${token.data}`;
 
 		// @ts-ignore

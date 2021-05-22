@@ -28,13 +28,7 @@ export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
 				);
 
 				let decl = scope.get(tok.data);
-				if (!decl) {
-					console.warn(
-						`Couldn't find declaration for ident:\n`,
-						tok.toString(),
-					);
-					return;
-				}
+				if (!decl) return; // TODO - Add baked-in definitions/hover help for stdlib
 
 				builder.push(tok.range, decl.semanticType);
 			});

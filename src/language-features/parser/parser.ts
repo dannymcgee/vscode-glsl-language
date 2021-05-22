@@ -1,6 +1,6 @@
 import { Position, Range, TextDocument, Uri } from "vscode";
-import { Token, TokenType } from "../lexer";
 
+import { Token, TokenType } from "../lexer";
 import { DocParser } from "./doc-parser";
 import { Scope } from "./scope";
 
@@ -32,8 +32,8 @@ export namespace parser {
 		let scope = map.get(doc.uri);
 		if (!scope) return null;
 
-		while (scope.children.length) {
-			let candidates = scope.children.filter(ch => ch.range.contains(rangeOrPos));
+		while (scope!.children.length) {
+			let candidates = scope!.children.filter(ch => ch.range?.contains(rangeOrPos));
 			// #region debug
 			if (candidates.length > 1) {
 				if (rangeOrPos instanceof Position) {
@@ -53,6 +53,6 @@ export namespace parser {
 			scope = candidates[0];
 		}
 
-		return scope;
+		return scope ?? null;
 	}
 }

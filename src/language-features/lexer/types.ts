@@ -1,5 +1,3 @@
-import { Range } from "vscode";
-
 export interface Options {
 	version?: string;
 }
@@ -25,11 +23,4 @@ export interface _Token {
 	position: number;
 	line: number;
 	column: number;
-}
-
-export interface Token {
-	type: TokenType;
-	data: string;
-	range: Range;
-	toString(): string;
 }

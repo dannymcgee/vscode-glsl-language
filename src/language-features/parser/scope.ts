@@ -1,6 +1,6 @@
 import { Position, Range } from "vscode";
 
-import { Decl } from "./declaration";
+import { Decl } from "./decl";
 
 export class Scope {
 	private _decls = new Map<string, Decl>();

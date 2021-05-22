@@ -1,16 +1,10 @@
+import { Position, Range } from "vscode";
+
 import { Token, TokenType } from "../lexer";
-import { Decl } from "./declaration";
-import { regex } from "./regex";
+import { FuncDecl, MacroDecl, ParamDecl, VariableDecl } from "./decl";
+import { FLOAT, IDENT, INT_DEC, INT_HEX, regex } from "./regex";
 import { Scope } from "./scope";
-
-// TODO: Duplication
-const IDENT = /[a-zA-Z][_a-zA-Z0-9]*/;
-const TYPE_SIMPLE = /void|bool|(?:atomic_u|u)?int|float|double/;
-const TYPE_STRUCT = /[dbiu]?vec[234]|d?mat[234](?:x[234])?/;
-
-const SAMPLER_MAIN = /sampler|image/;
-const SAMPLER_SUFFIX = /[123]D|Cube|Array|Rect|Shadow|Buffer|MS/;
-const TYPE_SAMPLER = regex`/[ui]?(?:${SAMPLER_MAIN})(?:${SAMPLER_SUFFIX})*/`;
+import { isDocComment, isType } from "./utility";
 
 export class DocParser {
 	private readonly _tokens: Token[];
@@ -18,6 +12,7 @@ export class DocParser {
 	private _ptr = 0;
 
 	get scope()   { return this._scopes[this._scopes.length - 1]; }
+	get outer()   { return this._scopes[this._scopes.length - 2]; }
 
 	get prev()    { return this._tokens[this._ptr - 1]; }
 	get current() { return this._tokens[this._ptr]; }
@@ -61,15 +56,58 @@ export class DocParser {
 	}
 
 	private parseMacro() {
-		let match = this.current.data.match(regex`/#\s*define\s+(${IDENT})/`);
-		if (match) {
-			this.scope.add(match[1], Decl.macro(this.current));
+		let line = this.current.data;
+		let { start, end } = this.current.range;
+		let match = line.match(regex`/#\s*define\s+(${IDENT})\s+(\S+)/`);
+
+		if (!match) {
+			return this.advance();
 		}
+
+		// Create token for the macro identifier
+		let identStartIdx = line.indexOf(match[1]);
+		let identRange = new Range(
+			new Position(start.line, identStartIdx),
+			new Position(end.line, identStartIdx + match[1].length)
+		)
+		let ident = new Token(TokenType.Ident, match[1], identRange);
+
+		// Create token for the macro value
+		let valueStartIdx = line.indexOf(match[2]);
+		let valueRange = new Range(
+			new Position(start.line, valueStartIdx),
+			new Position(end.line, identStartIdx + match[2].length),
+		);
+		let valueType: TokenType;
+		if (INT_DEC.test(match[2]) || INT_HEX.test(match[2])) {
+			valueType = TokenType.Integer;
+		} else if (FLOAT.test(match[2])) {
+			valueType = TokenType.Float;
+		} else if (IDENT.test(match[2])) {
+			valueType = TokenType.Ident;
+		}
+		let value = new Token(valueType, match[2], valueRange);
+
+		// Find the preceding doc-comment token if it exists
+		let docComment: Token;
+		if (this.prev?.type === TokenType.BlockComment
+			&& this.prev?.data.trim().startsWith("/**"))
+		{
+			docComment = this.prev;
+		}
+
+		// Add the declaration to the current scope
+		this.scope.add(match[1], new MacroDecl(
+			ident,
+			value,
+			line.replace(/\s+/g, " "),
+			docComment
+		));
 		this.advance();
 	}
 
 	private parseIdent() {
-		if (!this.isType(this.prev))
+		if (!isType(this.prev))
 			return this.advance();
 
 		if (this.checkNext(TokenType.Operator, "("))
@@ -79,8 +117,17 @@ export class DocParser {
 	}
 
 	private parseFunction() {
-		let func = this.consume(TokenType.Ident);
-		this.scope.add(func.data, Decl.func(func));
+		let returnType = this.prev;
+
+		let docComment: Token;
+		// FIXME
+		if (isDocComment(this._tokens[this._ptr - 2])) {
+			docComment = this._tokens[this._ptr - 2];
+		}
+
+		let funcToken = this.consume(TokenType.Ident);
+		let params: ParamDecl[] = [];
+		// this.scope.add(func.data, new FuncDecl(func));
 
 		let open = this.consume(TokenType.Operator, "(");
 		this.pushScope(open);
@@ -89,22 +136,40 @@ export class DocParser {
 			if (this.check(TokenType.Operator, ","))
 				this.advance();
 
-			if (!this.checkNext(TokenType.Ident))
-				this.advance();
+			let modifier: Token;
+			if (!this.checkNext(TokenType.Ident)) {
+				if (this.check(TokenType.Keyword)) {
+					modifier = this.consume(TokenType.Keyword)
+				} else {
+					this.advance();
+				}
+			}
 
-			// TODO
-			let _type = this.consume(TokenType.Keyword);
-			let param = this.consume(TokenType.Ident);
-			this.scope.add(param.data, Decl.param(param));
+			let type = this.consume(TokenType.Keyword);
+			let token = this.consume(TokenType.Ident);
+			let param = new ParamDecl(token, type, modifier);
+
+			params.push(param);
+			this.scope.add(token.data, param);
 		}
+
+		let func = new FuncDecl(funcToken, returnType, params, docComment);
+		this.outer.add(funcToken.data, func);
 
 		this.consume(TokenType.Operator, ")");
 		this.consume(TokenType.Operator, "{");
 	}
 
 	private parseVariable() {
+		let type = this.prev;
+		let modifier: Token;
+		// FIXME
+		if (this._tokens[this._ptr - 2]?.type === TokenType.Keyword) {
+			modifier = this._tokens[this._ptr - 2];
+		}
 		let ident = this.consume(TokenType.Ident);
-		this.scope.add(ident.data, Decl.variable(ident));
+
+		this.scope.add(ident.data, new VariableDecl(ident, type, modifier));
 	}
 
 	private advance() {
@@ -119,13 +184,6 @@ export class DocParser {
 	private checkNext(type: TokenType, data?: string): boolean {
 		return (this.next.type === type
 			&& (!data || this.next.data === data));
-	}
-
-	private isType(token: Token): boolean {
-		return token.type === TokenType.Keyword
-			&& (TYPE_SIMPLE.test(token.data)
-				|| TYPE_STRUCT.test(token.data)
-				|| (TYPE_SAMPLER as RegExp).test(token.data));
 	}
 
 	private consume(type: TokenType, data?: string): Token {

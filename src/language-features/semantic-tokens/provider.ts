@@ -15,10 +15,8 @@ export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
 		doc: TextDocument,
 		token: CancellationToken,
 	): SemanticTokens {
-		let src = doc.getText();
 		let builder = new SemanticTokensBuilder(SEMANTIC_TOKENS_LEGEND);
-
-		let tokens = lexer.scan(src, { version: "440 core" });
+		let tokens = lexer.scan(doc.getText());
 		parser.parse(doc, tokens);
 
 		tokens
@@ -38,7 +36,7 @@ export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
 					return;
 				}
 
-				builder.push(tok.range, decl.type);
+				builder.push(tok.range, decl.semanticType);
 			});
 
 		return builder.build();

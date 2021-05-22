@@ -1,5 +1,6 @@
 import { languages, ExtensionContext } from "vscode";
 
+import HoverProvider from "./hover";
 import SemanticTokensProvider, { SEMANTIC_TOKENS_LEGEND } from "./semantic-tokens";
 
 export function activate(ctx: ExtensionContext) {
@@ -11,5 +12,9 @@ export function activate(ctx: ExtensionContext) {
 			new SemanticTokensProvider(),
 			SEMANTIC_TOKENS_LEGEND
 		)
+	);
+
+	ctx.subscriptions.push(
+		languages.registerHoverProvider({ language: "glsl" }, new HoverProvider())
 	);
 }

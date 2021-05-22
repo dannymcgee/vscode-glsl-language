@@ -1,4 +1,5 @@
 import { lexer } from "./lexer";
 
-export { Options, TokenType, Token } from "./types";
+export * from "./token";
+export { Options, TokenType } from "./types";
 export default lexer;

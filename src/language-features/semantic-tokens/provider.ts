@@ -1,5 +1,4 @@
 import {
-	CancellationToken,
 	DocumentSemanticTokensProvider,
 	SemanticTokens,
 	SemanticTokensBuilder,
@@ -11,10 +10,7 @@ import parser from "../parser";
 import { SEMANTIC_TOKENS_LEGEND } from "./legend";
 
 export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
-	provideDocumentSemanticTokens(
-		doc: TextDocument,
-		token: CancellationToken,
-	): SemanticTokens {
+	provideDocumentSemanticTokens(doc: TextDocument): SemanticTokens {
 		let builder = new SemanticTokensBuilder(SEMANTIC_TOKENS_LEGEND);
 		let tokens = lexer.scan(doc.getText());
 		parser.parse(doc, tokens);
@@ -28,7 +24,7 @@ export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
 				);
 
 				let decl = scope.get(tok.data);
-				if (!decl) return; // TODO - Add baked-in definitions/hover help for stdlib
+				if (!decl) return;
 
 				builder.push(tok.range, decl.semanticType);
 			});

@@ -1,10 +1,8 @@
 import * as vscode from "vscode";
 import {
-	CancellationToken,
 	Hover,
 	MarkdownString,
 	Position,
-	ProviderResult,
 	TextDocument,
 } from "vscode";
 
@@ -13,20 +11,16 @@ import parser, { FuncDecl } from "../parser";
 import { parseDocComment } from "./doc-comment";
 
 export class HoverProvider implements vscode.HoverProvider {
-	provideHover(
-		doc: TextDocument,
-		pos: Position,
-		token: CancellationToken,
-	): ProviderResult<Hover> {
+	provideHover(doc: TextDocument, pos: Position): Hover|null {
 		let tokens = lexer.scan(doc.getText());
 		let match = tokens.find(tok => tok.range.contains(pos));
 
-		if (match?.type !== TokenType.Ident) return;
+		if (match?.type !== TokenType.Ident) return null;
 
 		let scope = parser.getScope(doc, pos);
 		let decl = scope?.get(match.data);
 
-		if (!decl) return;
+		if (!decl) return null;
 
 		let contents = new MarkdownString();
 		contents.appendCodeblock(decl.content, "glsl");

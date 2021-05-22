@@ -5,12 +5,12 @@
 
 
 /**
- * Measure the distance to the nearest scene object
- *
- * @param p The point from which to measure
+ * Measure the distance from `p` to the nearest scene object
  *
  * @example
- * ```float dist = distToScene( vec3(1,1,1) );```
+ * ```
+ * float dist = distToScene( vec3(1,1,1) );
+ * ```
  */
 float distToScene( vec3 p ) {
 	vec4  sphere       = vec4(0, 1.2, 7.5, 1.5); // x, y, z, r
@@ -22,6 +22,7 @@ float distToScene( vec3 p ) {
 
 
 /**
+ * Lorem ipsum dolor sit amet
  * @param ro Ray origin (camera pos)
  * @param rd Ray direction
  */

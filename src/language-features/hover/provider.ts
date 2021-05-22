@@ -9,7 +9,8 @@ import {
 } from "vscode";
 
 import lexer, { TokenType } from "../lexer";
-import parser from "../parser";
+import parser, { FuncDecl } from "../parser";
+import { parseDocComment } from "./doc-comment";
 
 export class HoverProvider implements vscode.HoverProvider {
 	provideHover(
@@ -30,6 +31,17 @@ export class HoverProvider implements vscode.HoverProvider {
 		let contents = new MarkdownString();
 		contents.appendCodeblock(decl.content, "glsl");
 
-		return new Hover(contents, match.range);
+		let docBlock: MarkdownString[];
+		if (decl instanceof FuncDecl) {
+			docBlock = parseDocComment(
+				decl.docComment,
+				decl.params,
+				decl.returnType
+			);
+		} else {
+			docBlock = parseDocComment(decl.docComment);
+		}
+
+		return new Hover([contents, ...docBlock], match.range);
 	}
 }

@@ -14,12 +14,12 @@ export class FuncDecl extends Decl {
 	) {
 		super(token);
 		// @ts-ignore
-		this.content = [
-			returnType.data,
-			token.data,
-			"(",
-			params.map(p => p.content).join(", "),
-			") { ... }",
-		].join(" ");
+		this.content = returnType.data
+			+ " " + token.data
+			+ "("
+			+ (params.length
+				? " " + params.map(p => p.content).join(", ") + " "
+				: "")
+			+ ")";
 	}
 }

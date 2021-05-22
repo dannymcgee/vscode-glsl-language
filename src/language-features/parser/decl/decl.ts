@@ -4,6 +4,7 @@ import { SemanticToken } from "../../semantic-tokens";
 export abstract class Decl {
 	readonly semanticType: SemanticToken;
 	readonly content: string;
+	docComment?: Token;
 
 	constructor(
 		public token: Token,

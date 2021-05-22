@@ -1,4 +1,4 @@
-import { Position, Range } from "vscode";
+import { Position, Range, TextDocument } from "vscode";
 import * as _tokenStream from "glsl-tokenizer/stream";
 import * as _tokenString from "glsl-tokenizer/string";
 
@@ -10,8 +10,10 @@ const DEFAULT_OPTIONS: Options = {
 };
 
 export namespace lexer {
-	export function scan(src: string, opts: Options = DEFAULT_OPTIONS): Token[] {
-		return (_tokenString(src, opts) as _Token[])
+	export function tokenize(doc: TextDocument): Token[] {
+		let src = doc.getText();
+
+		return (_tokenString(src, DEFAULT_OPTIONS) as _Token[])
 			.map((tok: _Token) => {
 				let range = new Range(
 					new Position(tok.line-1, Math.max(0, tok.column-tok.data.length)),

@@ -22,18 +22,19 @@ export namespace parser {
 		return scope;
 	}
 
-	export function getScope(doc: TextDocument, range: Range): Scope|null;
-	export function getScope(doc: TextDocument, pos: Position): Scope|null;
+	export function getScopeAt(doc: TextDocument, range: Range): Scope|null;
+	export function getScopeAt(doc: TextDocument, pos: Position): Scope|null;
 
-	export function getScope(
+	export function getScopeAt(
 		doc: TextDocument,
 		rangeOrPos: Range|Position,
 	): Scope|null {
 		let scope = map.get(doc.uri);
 		if (!scope) return null;
 
-		while (scope!.children.length) {
-			let candidates = scope!.children.filter(ch => ch.range?.contains(rangeOrPos));
+		let { children } = scope;
+		while (children.length) {
+			let candidates = children.filter(ch => ch.range?.contains(rangeOrPos));
 			// #region debug
 			if (candidates.length > 1) {
 				if (rangeOrPos instanceof Position) {

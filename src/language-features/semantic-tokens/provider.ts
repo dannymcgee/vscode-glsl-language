@@ -12,18 +12,16 @@ import { SEMANTIC_TOKENS_LEGEND } from "./legend";
 export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
 	provideDocumentSemanticTokens(doc: TextDocument): SemanticTokens {
 		let builder = new SemanticTokensBuilder(SEMANTIC_TOKENS_LEGEND);
-		let tokens = lexer.scan(doc.getText());
+		let tokens = lexer.tokenize(doc);
 		parser.parse(doc, tokens);
 
 		tokens
 			.filter(tok => tok.type === TokenType.Ident)
 			.forEach(tok => {
-				let scope = parser.getScope(doc, tok.range);
-				if (!scope) throw new Error(
-					`Couldn't find scope for token:\n${tok.toString()}`
-				);
+				let decl = parser
+					.getScopeAt(doc, tok.range)
+					?.findDeclOf(tok.data);
 
-				let decl = scope.get(tok.data);
 				if (!decl) return;
 
 				builder.push(tok.range, decl.semanticType);

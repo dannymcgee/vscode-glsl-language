@@ -12,14 +12,12 @@ import { parseDocComment } from "./doc-comment";
 
 export class HoverProvider implements vscode.HoverProvider {
 	provideHover(doc: TextDocument, pos: Position): Hover|null {
-		let tokens = lexer.scan(doc.getText());
+		let tokens = lexer.tokenize(doc);
 		let match = tokens.find(tok => tok.range.contains(pos));
 
 		if (match?.type !== TokenType.Ident) return null;
 
-		let scope = parser.getScope(doc, pos);
-		let decl = scope?.get(match.data);
-
+		let decl = parser.getScopeAt(doc, pos)?.findDeclOf(match.data);
 		if (!decl) return null;
 
 		let contents = new MarkdownString();

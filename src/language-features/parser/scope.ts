@@ -74,9 +74,9 @@ export class Scope {
 			);
 	}
 
-	get(ident: string): Decl|null {
+	findDeclOf(ident: string): Decl|null {
 		return this._decls.get(ident)
-			?? this._parent?.get(ident)
+			?? this._parent?.findDeclOf(ident)
 			?? null;
 	}
 

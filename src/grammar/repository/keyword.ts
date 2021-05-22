@@ -22,13 +22,18 @@ export const keyword: TMGrammarScope = {
 		},
 		{
 			// Storage modifiers
-			match: /\b(const|in|out|attribute|uniform|varying|buffer|shared)\b/,
+			match: /\b(const|in|out|inout|attribute|uniform|varying|buffer|shared|centroid|sample|patch|(?:high|medium|low)p)\b/,
 			name: "storage.modifier.$1.glsl",
 		},
 		{
 			// Control keywords
-			match: /\b(if|else|for|do|while|break|continue|switch|case|default|discard|return)\b/,
+			match: /\b(if|else|for|do|while|break|continue|switch|case|default|discard|return|precision)\b/,
 			name: "keyword.control.$1.glsl",
+		},
+		{
+			// Booleans
+			match: /\b(true|false)\b/,
+			name: "constant.language.boolean.glsl",
 		},
 		{
 			// Preprocessor define

@@ -1,32 +1,21 @@
-import { languages, ExtensionContext } from "vscode";
+import { ExtensionContext } from "vscode";
 import { DefinitionProvider } from "./definition";
+import diagnostics from "./diagnostics";
 
 import HoverProvider from "./hover";
+import lexer from "./lexer";
+import parser from "./parser";
 import SemanticTokensProvider, { SEMANTIC_TOKENS_LEGEND } from "./semantic-tokens";
-import { assert, Constructor } from "./utility";
-
-const GLSL = { language: "glsl" };
+import { provide } from "./utility";
 
 export function activate(ctx: ExtensionContext) {
 	console.log("GLSL Language activated!");
 
+	lexer.bootstrap(ctx);
+	parser.bootstrap(ctx);
+	diagnostics.bootstrap(ctx);
+
 	provide(ctx, "DocumentSemanticTokens", SemanticTokensProvider, SEMANTIC_TOKENS_LEGEND);
 	provide(ctx, "Hover", HoverProvider);
 	provide(ctx, "Definition", DefinitionProvider);
-}
-
-function provide(
-	ctx: ExtensionContext,
-	key: string,
-	Ctor: Constructor,
-	...addtl: any[]
-) {
-	let funcName = `register${key}Provider`;
-	let func = languages[funcName];
-
-	// Type-safety is out the window with this, so do some runtime sanity checks
-	assert(func != null, `Function '${funcName}' does not exist!`);
-	assert(typeof func === "function", `'${funcName}' is not a function!`);
-
-	ctx.subscriptions.push(func(GLSL, new Ctor(), ...addtl));
 }

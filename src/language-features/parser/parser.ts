@@ -1,18 +1,16 @@
-import { Position, Range, TextDocument } from "vscode";
+import { ExtensionContext, Position, Range, TextDocument } from "vscode";
 
 import lexer, { TokenType } from "../lexer";
-import { DocumentCache } from "../utility/cache";
+import { DocumentCache } from "../utility";
 import { DocParser } from "./doc-parser";
 import { Scope } from "./scope";
 
 export namespace parser {
-	const cache = new DocumentCache<Scope>();
-	// Forward-declare this just for the sake of keeping public API at the top
+	let cache: DocumentCache<Scope>;
 	let parse: (doc: TextDocument) => Scope;
 
 	export function getScopeAt(doc: TextDocument, range: Range): Scope;
 	export function getScopeAt(doc: TextDocument, pos: Position): Scope;
-
 	export function getScopeAt(doc: TextDocument, pos: Range|Position): Scope {
 		let scope = parse(doc);
 
@@ -26,18 +24,22 @@ export namespace parser {
 		return scope;
 	}
 
-	parse = cache.memoize((doc) => {
-		let first = doc.lineAt(0).range;
-		let last = doc.lineAt(doc.lineCount - 1).range;
-		let docRange = new Range(first.start, last.end);
+	export function bootstrap(ctx: ExtensionContext) {
+		cache = new DocumentCache(ctx);
 
-		let tokens = lexer
-			.tokenize(doc)
-			.filter(tok => tok.type !== TokenType.Whitespace);
+		parse = cache.memoize((doc) => {
+			let first = doc.lineAt(0).range;
+			let last = doc.lineAt(doc.lineCount - 1).range;
+			let docRange = new Range(first.start, last.end);
 
-		let scope = Scope.fromRange(docRange);
-		new DocParser(tokens, scope).parse();
+			let tokens = lexer
+				.tokenize(doc)
+				.filter(tok => tok.type !== TokenType.Whitespace);
 
-		return scope;
-	});
+			let scope = Scope.fromRange(docRange);
+			new DocParser(tokens, scope).parse();
+
+			return scope;
+		});
+	}
 }

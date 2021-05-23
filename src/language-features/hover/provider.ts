@@ -12,16 +12,20 @@ import { parseDocComment } from "./doc-comment";
 
 export class HoverProvider implements vscode.HoverProvider {
 	provideHover(doc: TextDocument, pos: Position): Hover|null {
-		let tokens = lexer.tokenize(doc);
-		let match = tokens.find(tok => tok.range.contains(pos));
+		let token = lexer
+			.tokenize(doc)
+			.find(tok => tok.range.contains(pos));
 
-		if (match?.type !== TokenType.Ident) return null;
+		if (token?.type !== TokenType.Ident) return null;
 
-		let decl = parser.getScopeAt(doc, pos)?.findDeclOf(match.data);
+		let decl = parser
+			.getScopeAt(doc, pos)
+			.findDeclOf(token.data);
+
 		if (!decl) return null;
 
-		let contents = new MarkdownString();
-		contents.appendCodeblock(decl.content, "glsl");
+		let contents = new MarkdownString()
+			.appendCodeblock(decl.content, "glsl");
 
 		let docBlock: MarkdownString[];
 		if (decl instanceof FuncDecl) {
@@ -34,6 +38,6 @@ export class HoverProvider implements vscode.HoverProvider {
 			docBlock = parseDocComment(decl.docComment);
 		}
 
-		return new Hover([contents, ...docBlock], match.range);
+		return new Hover([contents, ...docBlock], token.range);
 	}
 }

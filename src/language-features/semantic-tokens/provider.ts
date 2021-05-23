@@ -13,14 +13,13 @@ export class SemanticTokensProvider implements DocumentSemanticTokensProvider {
 	provideDocumentSemanticTokens(doc: TextDocument): SemanticTokens {
 		let builder = new SemanticTokensBuilder(SEMANTIC_TOKENS_LEGEND);
 		let tokens = lexer.tokenize(doc);
-		parser.parse(doc, tokens);
 
 		tokens
 			.filter(tok => tok.type === TokenType.Ident)
 			.forEach(tok => {
 				let decl = parser
 					.getScopeAt(doc, tok.range)
-					?.findDeclOf(tok.data);
+					.findDeclOf(tok.data);
 
 				if (!decl) return;
 

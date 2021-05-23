@@ -7,3 +7,9 @@ export function assert(expr: any, msg?: string): asserts expr {
 		msg ?? `Assertion failed: ${expr}`
 	);
 }
+
+export function sleep(timeout: number) {
+	return new Promise<void>((resolve) => {
+		setTimeout(resolve, timeout);
+	});
+}

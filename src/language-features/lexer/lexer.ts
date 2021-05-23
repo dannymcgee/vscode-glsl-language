@@ -1,7 +1,8 @@
-import { Position, Range, TextDocument } from "vscode";
+import { Position, Range } from "vscode";
 import * as _tokenStream from "glsl-tokenizer/stream";
 import * as _tokenString from "glsl-tokenizer/string";
 
+import { DocumentCache } from "../utility/cache";
 import { Options, _Token } from "./types";
 import { Token } from "./token";
 
@@ -10,7 +11,9 @@ const DEFAULT_OPTIONS: Options = {
 };
 
 export namespace lexer {
-	export function tokenize(doc: TextDocument): Token[] {
+	const cache = new DocumentCache<Token[]>();
+
+	export const tokenize = cache.memoize((doc) => {
 		let src = doc.getText();
 
 		return (_tokenString(src, DEFAULT_OPTIONS) as _Token[])
@@ -22,5 +25,5 @@ export namespace lexer {
 
 				return new Token(tok.type, tok.data, range);
 			});
-	}
+	});
 }

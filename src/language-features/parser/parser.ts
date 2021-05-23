@@ -1,59 +1,43 @@
-import { Position, Range, TextDocument, Uri } from "vscode";
+import { Position, Range, TextDocument } from "vscode";
 
-import { Token, TokenType } from "../lexer";
+import lexer, { TokenType } from "../lexer";
+import { DocumentCache } from "../utility/cache";
 import { DocParser } from "./doc-parser";
 import { Scope } from "./scope";
 
 export namespace parser {
-	const map = new Map<Uri, Scope>();
+	const cache = new DocumentCache<Scope>();
+	// Forward-declare this just for the sake of keeping public API at the top
+	let parse: (doc: TextDocument) => Scope;
 
-	// TODO: Figure out how to cache this result and invalidate it when changes happen
-	export function parse(doc: TextDocument, tokens: Token[]): Scope {
-		let first = doc.lineAt(0).range;
-		let last = doc.lineAt(doc.lineCount - 1).range;
-		let docRange = new Range(first.start, last.end);
+	export function getScopeAt(doc: TextDocument, range: Range): Scope;
+	export function getScopeAt(doc: TextDocument, pos: Position): Scope;
 
-		tokens = tokens.filter(tok => tok.type !== TokenType.Whitespace);
-		let scope = Scope.fromRange(docRange);
-		new DocParser(tokens, scope).parse();
+	export function getScopeAt(doc: TextDocument, pos: Range|Position): Scope {
+		let scope = parse(doc);
 
-		map.set(doc.uri, scope);
+		while (scope.children.length) {
+			let childAtPos = scope.children.find(ch => ch.range?.contains(pos));
+			if (!childAtPos) break;
+
+			scope = childAtPos;
+		}
 
 		return scope;
 	}
 
-	export function getScopeAt(doc: TextDocument, range: Range): Scope|null;
-	export function getScopeAt(doc: TextDocument, pos: Position): Scope|null;
+	parse = cache.memoize((doc) => {
+		let first = doc.lineAt(0).range;
+		let last = doc.lineAt(doc.lineCount - 1).range;
+		let docRange = new Range(first.start, last.end);
 
-	export function getScopeAt(
-		doc: TextDocument,
-		rangeOrPos: Range|Position,
-	): Scope|null {
-		let scope = map.get(doc.uri);
-		if (!scope) return null;
+		let tokens = lexer
+			.tokenize(doc)
+			.filter(tok => tok.type !== TokenType.Whitespace);
 
-		let { children } = scope;
-		while (children.length) {
-			let candidates = children.filter(ch => ch.range?.contains(rangeOrPos));
-			// #region debug
-			if (candidates.length > 1) {
-				if (rangeOrPos instanceof Position) {
-					throw new Error(`Multiple candidates found for position ${
-						rangeOrPos.line
-					}:${
-						rangeOrPos.character
-					}`);
-				}
-				throw new Error(`Multiple candidates found for range ${
-					rangeOrPos.start.line}:${rangeOrPos.start.character
-				} - ${rangeOrPos.end.line}:${rangeOrPos.end.character}`);
-			}
-			// #endregion
-			if (!candidates.length) break;
+		let scope = Scope.fromRange(docRange);
+		new DocParser(tokens, scope).parse();
 
-			scope = candidates[0];
-		}
-
-		return scope ?? null;
-	}
+		return scope;
+	});
 }

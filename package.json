@@ -53,13 +53,15 @@
 		"install-package": "ts-node --project tsconfig.tools.json scripts/install-package.ts",
 		"package": "yarn build && vsce package",
 		"test-run": "yarn package && yarn install-package",
-		"test": "jest"
+		"test": "jest",
+		"generate-stdlib": "ts-node --project tsconfig.tools.json scripts/generate-stdlib.ts"
 	},
 	"activationEvents": [
 		"onLanguage:glsl"
 	],
 	"devDependencies": {
 		"@types/jest": "^26.0.21",
+		"@types/jsdom": "^16.2.10",
 		"@types/node": "^14.14.11",
 		"@types/prettier": "^2.2.3",
 		"@types/rimraf": "^3.0.0",
@@ -67,6 +69,7 @@
 		"@types/vscode": "^1.56.0",
 		"chalk": "^4.1.0",
 		"jest": "^26.6.3",
+		"jsdom": "^16.6.0",
 		"prettier": "^2.2.1",
 		"rimraf": "^3.0.2",
 		"ts-jest": "^26.5.4",

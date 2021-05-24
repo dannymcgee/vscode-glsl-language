@@ -2,7 +2,9 @@
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "../../dist",
-		"strictNullChecks": true
+		"strictNullChecks": true,
+		"types": ["node", "vscode"],
 	},
-	"include": ["./*.ts", "./**/*.ts"]
+	"include": ["./*.ts", "./**/*.ts"],
+	"exclude": ["node_modules"]
 }

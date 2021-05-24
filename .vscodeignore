@@ -1,6 +1,7 @@
 .vscode/**
 scripts/**
 src/**
+vendor/OpenGL-Refpages
 .prettierrc.js
 jest.config.js
 tsconfig.json

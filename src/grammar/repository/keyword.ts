@@ -12,12 +12,12 @@ export const keyword: TMGrammarScope = {
 	patterns: [
 		{
 			// Storage types - primitive
-			match: regex`/${TYPE_SIMPLE}(?!\s*\()/`,
-			name: "storage.type.primitive.$0.glsl",
+			match: regex`/\b(${TYPE_SIMPLE})\b(?!\s*\()/`,
+			name: "storage.type.primitive.$1.glsl",
 		},
 		{
 			// Storage types - other
-			match: regex`/(${TYPE_STRUCT}|${TYPE_SAMPLER})(?!\s*\()/`,
+			match: regex`/\b(${TYPE_STRUCT}|${TYPE_SAMPLER})\b(?!\s*\()/`,
 			name: "storage.type.other.$1.glsl",
 		},
 		{

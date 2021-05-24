@@ -2,6 +2,7 @@ import { ExtensionContext, languages } from "vscode";
 import { Constructor } from "./types";
 
 export * from "./cache";
+export * from "./constants";
 export * from "./types";
 
 export function assert(expr: any, msg?: string): asserts expr {

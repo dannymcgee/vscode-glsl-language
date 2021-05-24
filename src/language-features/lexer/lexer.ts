@@ -14,7 +14,7 @@ export namespace lexer {
 	let cache: DocumentCache<Token[]>;
 	export let tokenize: (doc: TextDocument) => Token[];
 
-	export function bootstrap(ctx: ExtensionContext) {
+	export function bootstrap(ctx?: ExtensionContext) {
 		cache = new DocumentCache(ctx);
 
 		tokenize = cache.memoize((doc) => {

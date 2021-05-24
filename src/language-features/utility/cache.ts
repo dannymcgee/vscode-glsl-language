@@ -1,5 +1,6 @@
 import { ExtensionContext, TextDocument, Uri, workspace } from "vscode";
 
+import { sleep } from ".";
 import { Fn } from "./types";
 
 interface Cache<T> {
@@ -9,13 +10,19 @@ interface Cache<T> {
 
 export class DocumentCache<T> {
 	private _map = new Map<Uri, Cache<T>>();
+	private _hasCtx: boolean;
 
-	constructor(ctx: ExtensionContext) {
-		ctx.subscriptions.push(
-			workspace.onDidCloseTextDocument((doc) => {
-				this._map.delete(doc.uri);
-			}),
-		);
+	constructor(ctx?: ExtensionContext) {
+		if (ctx) {
+			this._hasCtx = true;
+			ctx.subscriptions.push(
+				workspace.onDidCloseTextDocument((doc) => {
+					this._map.delete(doc.uri);
+				}),
+			);
+		} else {
+			this._hasCtx = false;
+		}
 	}
 
 	memoize(operation: Fn<[TextDocument], T>) {
@@ -25,6 +32,8 @@ export class DocumentCache<T> {
 				if (cache.version === doc.version) {
 					return cache.value;
 				}
+			} else if (!this._hasCtx) {
+				this._watchForDocumentClose(doc);
 			}
 
 			let value = operation(doc);
@@ -32,5 +41,14 @@ export class DocumentCache<T> {
 
 			return value;
 		}
+	}
+
+	private async _watchForDocumentClose(doc: TextDocument) {
+		await sleep(1000);
+		if (doc.isClosed) {
+			this._map.delete(doc.uri);
+			return;
+		}
+		this._watchForDocumentClose(doc);
 	}
 }

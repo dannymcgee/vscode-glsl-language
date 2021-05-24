@@ -7,7 +7,7 @@ import { Scope } from "./scope";
 
 export namespace parser {
 	let cache: DocumentCache<Scope>;
-	let parse: (doc: TextDocument) => Scope;
+	export let parse: (doc: TextDocument) => Scope;
 
 	export function getScopeAt(doc: TextDocument, range: Range): Scope;
 	export function getScopeAt(doc: TextDocument, pos: Position): Scope;
@@ -24,7 +24,7 @@ export namespace parser {
 		return scope;
 	}
 
-	export function bootstrap(ctx: ExtensionContext) {
+	export function bootstrap(ctx?: ExtensionContext) {
 		cache = new DocumentCache(ctx);
 
 		parse = cache.memoize((doc) => {

@@ -4,7 +4,7 @@
  * @param y Specify the numerator of the fraction whose arctangent to return. 
  * @param x Specify the denominator of the fraction whose arctangent to return. 
  */
-float atan( float y, float x )
+float atan( float y, float x ) {}
 
 /**
  * return the arc-tangent of the parameters
@@ -12,7 +12,7 @@ float atan( float y, float x )
  * @param y Specify the numerator of the fraction whose arctangent to return. 
  * @param x Specify the denominator of the fraction whose arctangent to return. 
  */
-vec2 atan( vec2 y, vec2 x )
+vec2 atan( vec2 y, vec2 x ) {}
 
 /**
  * return the arc-tangent of the parameters
@@ -20,7 +20,7 @@ vec2 atan( vec2 y, vec2 x )
  * @param y Specify the numerator of the fraction whose arctangent to return. 
  * @param x Specify the denominator of the fraction whose arctangent to return. 
  */
-vec3 atan( vec3 y, vec3 x )
+vec3 atan( vec3 y, vec3 x ) {}
 
 /**
  * return the arc-tangent of the parameters
@@ -28,33 +28,33 @@ vec3 atan( vec3 y, vec3 x )
  * @param y Specify the numerator of the fraction whose arctangent to return. 
  * @param x Specify the denominator of the fraction whose arctangent to return. 
  */
-vec4 atan( vec4 y, vec4 x )
+vec4 atan( vec4 y, vec4 x ) {}
 
 /**
  * return the arc-tangent of the parameters
  * 
  * @param y_over_x Specify the fraction whose arctangent to return. 
  */
-float atan( float y_over_x )
+float atan( float y_over_x ) {}
 
 /**
  * return the arc-tangent of the parameters
  * 
  * @param y_over_x Specify the fraction whose arctangent to return. 
  */
-vec2 atan( vec2 y_over_x )
+vec2 atan( vec2 y_over_x ) {}
 
 /**
  * return the arc-tangent of the parameters
  * 
  * @param y_over_x Specify the fraction whose arctangent to return. 
  */
-vec3 atan( vec3 y_over_x )
+vec3 atan( vec3 y_over_x ) {}
 
 /**
  * return the arc-tangent of the parameters
  * 
  * @param y_over_x Specify the fraction whose arctangent to return. 
  */
-vec4 atan( vec4 y_over_x )
+vec4 atan( vec4 y_over_x ) {}
 

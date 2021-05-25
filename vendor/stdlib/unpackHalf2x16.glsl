@@ -3,5 +3,5 @@
  * 
  * @param v Specify a single 32-bit unsigned integer values that contains two 16-bit floating point values to be unpacked. 
  */
-vec2 unpackHalf2x16( uint v )
+vec2 unpackHalf2x16( uint v ) {}
 

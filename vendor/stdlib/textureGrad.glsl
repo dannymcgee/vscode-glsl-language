@@ -6,7 +6,7 @@
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-vec4 textureGrad( sampler1D sampler, float P, float dPdx, float dPdy )
+vec4 textureGrad( sampler1D sampler, float P, float dPdx, float dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -16,7 +16,7 @@ vec4 textureGrad( sampler1D sampler, float P, float dPdx, float dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-ivec4 textureGrad( isampler1D sampler, float P, float dPdx, float dPdy )
+ivec4 textureGrad( isampler1D sampler, float P, float dPdx, float dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -26,7 +26,7 @@ ivec4 textureGrad( isampler1D sampler, float P, float dPdx, float dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-uvec4 textureGrad( usampler1D sampler, float P, float dPdx, float dPdy )
+uvec4 textureGrad( usampler1D sampler, float P, float dPdx, float dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -36,7 +36,7 @@ uvec4 textureGrad( usampler1D sampler, float P, float dPdx, float dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-vec4 textureGrad( sampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy )
+vec4 textureGrad( sampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -46,7 +46,7 @@ vec4 textureGrad( sampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-ivec4 textureGrad( isampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy )
+ivec4 textureGrad( isampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -56,7 +56,7 @@ ivec4 textureGrad( isampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-uvec4 textureGrad( usampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy )
+uvec4 textureGrad( usampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -66,7 +66,7 @@ uvec4 textureGrad( usampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-vec4 textureGrad( sampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy )
+vec4 textureGrad( sampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -76,7 +76,7 @@ vec4 textureGrad( sampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-ivec4 textureGrad( isampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy )
+ivec4 textureGrad( isampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -86,7 +86,7 @@ ivec4 textureGrad( isampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-uvec4 textureGrad( usampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy )
+uvec4 textureGrad( usampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -96,7 +96,7 @@ uvec4 textureGrad( usampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-vec4 textureGrad( samplerCube sampler, vec3 P, vec3 dPdx, vec3 dPdy )
+vec4 textureGrad( samplerCube sampler, vec3 P, vec3 dPdx, vec3 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -106,7 +106,7 @@ vec4 textureGrad( samplerCube sampler, vec3 P, vec3 dPdx, vec3 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-ivec4 textureGrad( isamplerCube sampler, vec3 P, vec3 dPdx, vec3 dPdy )
+ivec4 textureGrad( isamplerCube sampler, vec3 P, vec3 dPdx, vec3 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -116,7 +116,7 @@ ivec4 textureGrad( isamplerCube sampler, vec3 P, vec3 dPdx, vec3 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-uvec4 textureGrad( usamplerCube sampler, vec3 P, vec3 dPdx, vec3 dPdy )
+uvec4 textureGrad( usamplerCube sampler, vec3 P, vec3 dPdx, vec3 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -126,7 +126,7 @@ uvec4 textureGrad( usamplerCube sampler, vec3 P, vec3 dPdx, vec3 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-vec4 textureGrad( sampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy )
+vec4 textureGrad( sampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -136,7 +136,7 @@ vec4 textureGrad( sampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-ivec4 textureGrad( isampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy )
+ivec4 textureGrad( isampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -146,7 +146,7 @@ ivec4 textureGrad( isampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-uvec4 textureGrad( usampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy )
+uvec4 textureGrad( usampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -156,7 +156,7 @@ uvec4 textureGrad( usampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-float textureGrad( sampler2DRectShadow sampler, vec2 P, vec2 dPdx, vec2 dPdy )
+float textureGrad( sampler2DRectShadow sampler, vec2 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -166,7 +166,7 @@ float textureGrad( sampler2DRectShadow sampler, vec2 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-float textureGrad( isampler2DRectShadow sampler, vec2 P, vec2 dPdx, vec2 dPdy )
+float textureGrad( isampler2DRectShadow sampler, vec2 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -176,7 +176,7 @@ float textureGrad( isampler2DRectShadow sampler, vec2 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-float textureGrad( usampler2DRectShadow sampler, vec2 P, vec2 dPdx, vec2 dPdy )
+float textureGrad( usampler2DRectShadow sampler, vec2 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -186,7 +186,7 @@ float textureGrad( usampler2DRectShadow sampler, vec2 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-float textureGrad( sampler1DShadow sampler, vec3 P, float dPdx, float dPdy )
+float textureGrad( sampler1DShadow sampler, vec3 P, float dPdx, float dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -196,7 +196,7 @@ float textureGrad( sampler1DShadow sampler, vec3 P, float dPdx, float dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-float textureGrad( sampler2DShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy )
+float textureGrad( sampler2DShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -206,7 +206,7 @@ float textureGrad( sampler2DShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-vec4 textureGrad( sampler1DArray sampler, vec2 P, float dPdx, float dPdy )
+vec4 textureGrad( sampler1DArray sampler, vec2 P, float dPdx, float dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -216,7 +216,7 @@ vec4 textureGrad( sampler1DArray sampler, vec2 P, float dPdx, float dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-ivec4 textureGrad( isampler1DArray sampler, vec2 P, float dPdx, float dPdy )
+ivec4 textureGrad( isampler1DArray sampler, vec2 P, float dPdx, float dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -226,7 +226,7 @@ ivec4 textureGrad( isampler1DArray sampler, vec2 P, float dPdx, float dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-uvec4 textureGrad( usampler1DArray sampler, vec2 P, float dPdx, float dPdy )
+uvec4 textureGrad( usampler1DArray sampler, vec2 P, float dPdx, float dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -236,7 +236,7 @@ uvec4 textureGrad( usampler1DArray sampler, vec2 P, float dPdx, float dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-vec4 textureGrad( sampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy )
+vec4 textureGrad( sampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -246,7 +246,7 @@ vec4 textureGrad( sampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-ivec4 textureGrad( isampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy )
+ivec4 textureGrad( isampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -256,7 +256,7 @@ ivec4 textureGrad( isampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-uvec4 textureGrad( usampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy )
+uvec4 textureGrad( usampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -266,7 +266,7 @@ uvec4 textureGrad( usampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-float textureGrad( sampler1DArrayShadow sampler, vec3 P, float dPdx, float dPdy )
+float textureGrad( sampler1DArrayShadow sampler, vec3 P, float dPdx, float dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -276,7 +276,7 @@ float textureGrad( sampler1DArrayShadow sampler, vec3 P, float dPdx, float dPdy 
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-vec4 textureGrad( samplerCubeArray sampler, vec4 P, vec3 dPdx, vec3 dPdy )
+vec4 textureGrad( samplerCubeArray sampler, vec4 P, vec3 dPdx, vec3 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -286,7 +286,7 @@ vec4 textureGrad( samplerCubeArray sampler, vec4 P, vec3 dPdx, vec3 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-ivec4 textureGrad( isamplerCubeArray sampler, vec4 P, vec3 dPdx, vec3 dPdy )
+ivec4 textureGrad( isamplerCubeArray sampler, vec4 P, vec3 dPdx, vec3 dPdy ) {}
 
 /**
  * perform a texture lookup with explicit gradients
@@ -296,5 +296,5 @@ ivec4 textureGrad( isamplerCubeArray sampler, vec4 P, vec3 dPdx, vec3 dPdy )
  * @param dPdx Specifies the partial derivative of  with respect to window x. 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  */
-uvec4 textureGrad( usamplerCubeArray sampler, vec4 P, vec3 dPdx, vec3 dPdy )
+uvec4 textureGrad( usamplerCubeArray sampler, vec4 P, vec3 dPdx, vec3 dPdy ) {}
 

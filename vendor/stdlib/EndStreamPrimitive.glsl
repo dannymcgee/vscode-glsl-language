@@ -3,5 +3,5 @@
  * 
  * @param stream Specifies the stream upon which the current primitive will be ended. 
  */
-void EndStreamPrimitive( int stream )
+void EndStreamPrimitive( int stream ) {}
 

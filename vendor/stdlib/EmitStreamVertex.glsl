@@ -3,5 +3,5 @@
  * 
  * @param stream Specifies the stream upon which the vertex will be emitted. 
  */
-void EmitStreamVertex( int stream )
+void EmitStreamVertex( int stream ) {}
 

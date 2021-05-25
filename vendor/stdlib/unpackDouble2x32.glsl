@@ -3,5 +3,5 @@
  * 
  * @param d Specifies double precision value to break into a pair of unsigned integers. 
  */
-uvec2 unpackDouble2x32( double d )
+uvec2 unpackDouble2x32( double d ) {}
 

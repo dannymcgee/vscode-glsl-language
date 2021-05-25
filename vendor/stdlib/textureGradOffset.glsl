@@ -7,7 +7,7 @@
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-vec4 textureGradOffset( sampler1D sampler, float P, float dPdx, float dPdy, int offset )
+vec4 textureGradOffset( sampler1D sampler, float P, float dPdx, float dPdy, int offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -18,7 +18,7 @@ vec4 textureGradOffset( sampler1D sampler, float P, float dPdx, float dPdy, int 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-ivec4 textureGradOffset( isampler1D sampler, float P, float dPdx, float dPdy, int offset )
+ivec4 textureGradOffset( isampler1D sampler, float P, float dPdx, float dPdy, int offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -29,7 +29,7 @@ ivec4 textureGradOffset( isampler1D sampler, float P, float dPdx, float dPdy, in
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-uvec4 textureGradOffset( usampler1D sampler, float P, float dPdx, float dPdy, int offset )
+uvec4 textureGradOffset( usampler1D sampler, float P, float dPdx, float dPdy, int offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -40,7 +40,7 @@ uvec4 textureGradOffset( usampler1D sampler, float P, float dPdx, float dPdy, in
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-vec4 textureGradOffset( sampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+vec4 textureGradOffset( sampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -51,7 +51,7 @@ vec4 textureGradOffset( sampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 o
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-ivec4 textureGradOffset( isampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+ivec4 textureGradOffset( isampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -62,7 +62,7 @@ ivec4 textureGradOffset( isampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-uvec4 textureGradOffset( usampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+uvec4 textureGradOffset( usampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -73,7 +73,7 @@ uvec4 textureGradOffset( usampler2D sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-vec4 textureGradOffset( sampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy, ivec3 offset )
+vec4 textureGradOffset( sampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy, ivec3 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -84,7 +84,7 @@ vec4 textureGradOffset( sampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy, ivec3 o
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-ivec4 textureGradOffset( isampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy, ivec3 offset )
+ivec4 textureGradOffset( isampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy, ivec3 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -95,7 +95,7 @@ ivec4 textureGradOffset( isampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy, ivec3
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-uvec4 textureGradOffset( usampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy, ivec3 offset )
+uvec4 textureGradOffset( usampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy, ivec3 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -106,7 +106,7 @@ uvec4 textureGradOffset( usampler3D sampler, vec3 P, vec3 dPdx, vec3 dPdy, ivec3
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-vec4 textureGradOffset( sampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+vec4 textureGradOffset( sampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -117,7 +117,7 @@ vec4 textureGradOffset( sampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy, ive
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-ivec4 textureGradOffset( isampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+ivec4 textureGradOffset( isampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -128,7 +128,7 @@ ivec4 textureGradOffset( isampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy, i
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-uvec4 textureGradOffset( usampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+uvec4 textureGradOffset( usampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -139,7 +139,7 @@ uvec4 textureGradOffset( usampler2DRect sampler, vec2 P, vec2 dPdx, vec2 dPdy, i
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-float textureGradOffset( sampler2DRectShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+float textureGradOffset( sampler2DRectShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -150,7 +150,7 @@ float textureGradOffset( sampler2DRectShadow sampler, vec3 P, vec2 dPdx, vec2 dP
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-float textureGradOffset( isampler2DRectShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+float textureGradOffset( isampler2DRectShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -161,7 +161,7 @@ float textureGradOffset( isampler2DRectShadow sampler, vec3 P, vec2 dPdx, vec2 d
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-float textureGradOffset( usampler2DRectShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+float textureGradOffset( usampler2DRectShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -172,7 +172,7 @@ float textureGradOffset( usampler2DRectShadow sampler, vec3 P, vec2 dPdx, vec2 d
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-float textureGradOffset( sampler1DShadow sampler, vec3 P, float dPdx, float dPdy, int offset )
+float textureGradOffset( sampler1DShadow sampler, vec3 P, float dPdx, float dPdy, int offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -183,7 +183,7 @@ float textureGradOffset( sampler1DShadow sampler, vec3 P, float dPdx, float dPdy
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-float textureGradOffset( sampler2DShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+float textureGradOffset( sampler2DShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -194,7 +194,7 @@ float textureGradOffset( sampler2DShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-vec4 textureGradOffset( sampler1DArray sampler, vec2 P, float dPdx, float dPdy, int offset )
+vec4 textureGradOffset( sampler1DArray sampler, vec2 P, float dPdx, float dPdy, int offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -205,7 +205,7 @@ vec4 textureGradOffset( sampler1DArray sampler, vec2 P, float dPdx, float dPdy, 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-ivec4 textureGradOffset( isampler1DArray sampler, vec2 P, float dPdx, float dPdy, int offset )
+ivec4 textureGradOffset( isampler1DArray sampler, vec2 P, float dPdx, float dPdy, int offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -216,7 +216,7 @@ ivec4 textureGradOffset( isampler1DArray sampler, vec2 P, float dPdx, float dPdy
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-uvec4 textureGradOffset( usampler1DArray sampler, vec2 P, float dPdx, float dPdy, int offset )
+uvec4 textureGradOffset( usampler1DArray sampler, vec2 P, float dPdx, float dPdy, int offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -227,7 +227,7 @@ uvec4 textureGradOffset( usampler1DArray sampler, vec2 P, float dPdx, float dPdy
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-vec4 textureGradOffset( sampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+vec4 textureGradOffset( sampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -238,7 +238,7 @@ vec4 textureGradOffset( sampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy, iv
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-ivec4 textureGradOffset( isampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+ivec4 textureGradOffset( isampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -249,7 +249,7 @@ ivec4 textureGradOffset( isampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy, 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-uvec4 textureGradOffset( usampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+uvec4 textureGradOffset( usampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -260,7 +260,7 @@ uvec4 textureGradOffset( usampler2DArray sampler, vec3 P, vec2 dPdx, vec2 dPdy, 
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-float textureGradOffset( sampler1DArrayShadow sampler, vec3 P, float dPdx, float dPdy, int offset )
+float textureGradOffset( sampler1DArrayShadow sampler, vec3 P, float dPdx, float dPdy, int offset ) {}
 
 /**
  * perform a texture lookup with explicit gradients and offset
@@ -271,5 +271,5 @@ float textureGradOffset( sampler1DArrayShadow sampler, vec3 P, float dPdx, float
  * @param dPdy Specifies the partial derivative of  with respect to window y. 
  * @param offset Specifies the offset to be applied to the texture coordinates before sampling. 
  */
-float textureGradOffset( sampler2DArrayShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset )
+float textureGradOffset( sampler2DArrayShadow sampler, vec3 P, vec2 dPdx, vec2 dPdy, ivec2 offset ) {}
 

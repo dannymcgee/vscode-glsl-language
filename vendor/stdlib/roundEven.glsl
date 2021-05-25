@@ -3,54 +3,54 @@
  * 
  * @param x Specify the value to evaluate. 
  */
-float roundEven( float x )
+float roundEven( float x ) {}
 
 /**
  * find the nearest even integer to the parameter
  * 
  * @param x Specify the value to evaluate. 
  */
-vec2 roundEven( vec2 x )
+vec2 roundEven( vec2 x ) {}
 
 /**
  * find the nearest even integer to the parameter
  * 
  * @param x Specify the value to evaluate. 
  */
-vec3 roundEven( vec3 x )
+vec3 roundEven( vec3 x ) {}
 
 /**
  * find the nearest even integer to the parameter
  * 
  * @param x Specify the value to evaluate. 
  */
-vec4 roundEven( vec4 x )
+vec4 roundEven( vec4 x ) {}
 
 /**
  * find the nearest even integer to the parameter
  * 
  * @param x Specify the value to evaluate. 
  */
-double roundEven( double x )
+double roundEven( double x ) {}
 
 /**
  * find the nearest even integer to the parameter
  * 
  * @param x Specify the value to evaluate. 
  */
-dvec2 roundEven( dvec2 x )
+dvec2 roundEven( dvec2 x ) {}
 
 /**
  * find the nearest even integer to the parameter
  * 
  * @param x Specify the value to evaluate. 
  */
-dvec3 roundEven( dvec3 x )
+dvec3 roundEven( dvec3 x ) {}
 
 /**
  * find the nearest even integer to the parameter
  * 
  * @param x Specify the value to evaluate. 
  */
-dvec4 roundEven( dvec4 x )
+dvec4 roundEven( dvec4 x ) {}
 

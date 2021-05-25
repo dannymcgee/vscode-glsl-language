@@ -4,7 +4,7 @@
  * @param x Specifies the first vector to be used in the comparison operation. 
  * @param y Specifies the second vector to be used in the comparison operation. 
  */
-bvec2 lessThanEqual( vec2 x, vec2 y )
+bvec2 lessThanEqual( vec2 x, vec2 y ) {}
 
 /**
  * perform a component-wise less-than-or-equal comparison of two vectors
@@ -12,7 +12,7 @@ bvec2 lessThanEqual( vec2 x, vec2 y )
  * @param x Specifies the first vector to be used in the comparison operation. 
  * @param y Specifies the second vector to be used in the comparison operation. 
  */
-bvec3 lessThanEqual( vec3 x, vec3 y )
+bvec3 lessThanEqual( vec3 x, vec3 y ) {}
 
 /**
  * perform a component-wise less-than-or-equal comparison of two vectors
@@ -20,7 +20,7 @@ bvec3 lessThanEqual( vec3 x, vec3 y )
  * @param x Specifies the first vector to be used in the comparison operation. 
  * @param y Specifies the second vector to be used in the comparison operation. 
  */
-bvec4 lessThanEqual( vec4 x, vec4 y )
+bvec4 lessThanEqual( vec4 x, vec4 y ) {}
 
 /**
  * perform a component-wise less-than-or-equal comparison of two vectors
@@ -28,7 +28,7 @@ bvec4 lessThanEqual( vec4 x, vec4 y )
  * @param x Specifies the first vector to be used in the comparison operation. 
  * @param y Specifies the second vector to be used in the comparison operation. 
  */
-bvec2 lessThanEqual( ivec2 x, ivec2 y )
+bvec2 lessThanEqual( ivec2 x, ivec2 y ) {}
 
 /**
  * perform a component-wise less-than-or-equal comparison of two vectors
@@ -36,7 +36,7 @@ bvec2 lessThanEqual( ivec2 x, ivec2 y )
  * @param x Specifies the first vector to be used in the comparison operation. 
  * @param y Specifies the second vector to be used in the comparison operation. 
  */
-bvec3 lessThanEqual( ivec3 x, ivec3 y )
+bvec3 lessThanEqual( ivec3 x, ivec3 y ) {}
 
 /**
  * perform a component-wise less-than-or-equal comparison of two vectors
@@ -44,7 +44,7 @@ bvec3 lessThanEqual( ivec3 x, ivec3 y )
  * @param x Specifies the first vector to be used in the comparison operation. 
  * @param y Specifies the second vector to be used in the comparison operation. 
  */
-bvec4 lessThanEqual( ivec4 x, ivec4 y )
+bvec4 lessThanEqual( ivec4 x, ivec4 y ) {}
 
 /**
  * perform a component-wise less-than-or-equal comparison of two vectors
@@ -52,7 +52,7 @@ bvec4 lessThanEqual( ivec4 x, ivec4 y )
  * @param x Specifies the first vector to be used in the comparison operation. 
  * @param y Specifies the second vector to be used in the comparison operation. 
  */
-bvec2 lessThanEqual( uvec2 x, uvec2 y )
+bvec2 lessThanEqual( uvec2 x, uvec2 y ) {}
 
 /**
  * perform a component-wise less-than-or-equal comparison of two vectors
@@ -60,7 +60,7 @@ bvec2 lessThanEqual( uvec2 x, uvec2 y )
  * @param x Specifies the first vector to be used in the comparison operation. 
  * @param y Specifies the second vector to be used in the comparison operation. 
  */
-bvec3 lessThanEqual( uvec3 x, uvec3 y )
+bvec3 lessThanEqual( uvec3 x, uvec3 y ) {}
 
 /**
  * perform a component-wise less-than-or-equal comparison of two vectors
@@ -68,5 +68,5 @@ bvec3 lessThanEqual( uvec3 x, uvec3 y )
  * @param x Specifies the first vector to be used in the comparison operation. 
  * @param y Specifies the second vector to be used in the comparison operation. 
  */
-bvec4 lessThanEqual( uvec4 x, uvec4 y )
+bvec4 lessThanEqual( uvec4 x, uvec4 y ) {}
 

@@ -178,7 +178,7 @@ function generateContent(
 				result += " ";
 			}
 
-			result += ")\n\n";
+			result += ") {}\n\n";
 		});
 
 	return result;

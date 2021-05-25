@@ -6,7 +6,7 @@
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-vec4 textureProjLodOffset( sampler1D sampler, vec2 P, float lod, int offset )
+vec4 textureProjLodOffset( sampler1D sampler, vec2 P, float lod, int offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -16,7 +16,7 @@ vec4 textureProjLodOffset( sampler1D sampler, vec2 P, float lod, int offset )
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-ivec4 textureProjLodOffset( isampler1D sampler, vec2 P, float lod, int offset )
+ivec4 textureProjLodOffset( isampler1D sampler, vec2 P, float lod, int offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -26,7 +26,7 @@ ivec4 textureProjLodOffset( isampler1D sampler, vec2 P, float lod, int offset )
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-uvec4 textureProjLodOffset( usampler1D sampler, vec2 P, float lod, int offset )
+uvec4 textureProjLodOffset( usampler1D sampler, vec2 P, float lod, int offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -36,7 +36,7 @@ uvec4 textureProjLodOffset( usampler1D sampler, vec2 P, float lod, int offset )
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-vec4 textureProjLodOffset( sampler1D sampler, vec4 P, float lod, int offset )
+vec4 textureProjLodOffset( sampler1D sampler, vec4 P, float lod, int offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -46,7 +46,7 @@ vec4 textureProjLodOffset( sampler1D sampler, vec4 P, float lod, int offset )
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-ivec4 textureProjLodOffset( isampler1D sampler, vec4 P, float lod, int offset )
+ivec4 textureProjLodOffset( isampler1D sampler, vec4 P, float lod, int offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -56,7 +56,7 @@ ivec4 textureProjLodOffset( isampler1D sampler, vec4 P, float lod, int offset )
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-uvec4 textureProjLodOffset( usampler1D sampler, vec4 P, float lod, int offset )
+uvec4 textureProjLodOffset( usampler1D sampler, vec4 P, float lod, int offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -66,7 +66,7 @@ uvec4 textureProjLodOffset( usampler1D sampler, vec4 P, float lod, int offset )
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-vec4 textureProjLodOffset( sampler2D sampler, vec3 P, float lod, ivec2 offset )
+vec4 textureProjLodOffset( sampler2D sampler, vec3 P, float lod, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -76,7 +76,7 @@ vec4 textureProjLodOffset( sampler2D sampler, vec3 P, float lod, ivec2 offset )
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-ivec4 textureProjLodOffset( isampler2D sampler, vec3 P, float lod, ivec2 offset )
+ivec4 textureProjLodOffset( isampler2D sampler, vec3 P, float lod, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -86,7 +86,7 @@ ivec4 textureProjLodOffset( isampler2D sampler, vec3 P, float lod, ivec2 offset 
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-uvec4 textureProjLodOffset( usampler2D sampler, vec3 P, float lod, ivec2 offset )
+uvec4 textureProjLodOffset( usampler2D sampler, vec3 P, float lod, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -96,7 +96,7 @@ uvec4 textureProjLodOffset( usampler2D sampler, vec3 P, float lod, ivec2 offset 
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-vec4 textureProjLodOffset( sampler2D sampler, vec4 P, float lod, ivec2 offset )
+vec4 textureProjLodOffset( sampler2D sampler, vec4 P, float lod, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -106,7 +106,7 @@ vec4 textureProjLodOffset( sampler2D sampler, vec4 P, float lod, ivec2 offset )
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-ivec4 textureProjLodOffset( isampler2D sampler, vec4 P, float lod, ivec2 offset )
+ivec4 textureProjLodOffset( isampler2D sampler, vec4 P, float lod, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -116,7 +116,7 @@ ivec4 textureProjLodOffset( isampler2D sampler, vec4 P, float lod, ivec2 offset 
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-uvec4 textureProjLodOffset( usampler2D sampler, vec4 P, float lod, ivec2 offset )
+uvec4 textureProjLodOffset( usampler2D sampler, vec4 P, float lod, ivec2 offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -126,7 +126,7 @@ uvec4 textureProjLodOffset( usampler2D sampler, vec4 P, float lod, ivec2 offset 
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-vec4 textureProjLodOffset( sampler3D sampler, vec4 P, float lod, ivec3 offset )
+vec4 textureProjLodOffset( sampler3D sampler, vec4 P, float lod, ivec3 offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -136,7 +136,7 @@ vec4 textureProjLodOffset( sampler3D sampler, vec4 P, float lod, ivec3 offset )
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-ivec4 textureProjLodOffset( isampler3D sampler, vec4 P, float lod, ivec3 offset )
+ivec4 textureProjLodOffset( isampler3D sampler, vec4 P, float lod, ivec3 offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -146,7 +146,7 @@ ivec4 textureProjLodOffset( isampler3D sampler, vec4 P, float lod, ivec3 offset 
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-uvec4 textureProjLodOffset( usampler3D sampler, vec4 P, float lod, ivec3 offset )
+uvec4 textureProjLodOffset( usampler3D sampler, vec4 P, float lod, ivec3 offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -156,7 +156,7 @@ uvec4 textureProjLodOffset( usampler3D sampler, vec4 P, float lod, ivec3 offset 
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-float textureProjLodOffset( sampler1DShadow sampler, vec4 P, float lod, int offset )
+float textureProjLodOffset( sampler1DShadow sampler, vec4 P, float lod, int offset ) {}
 
 /**
  * perform a texture lookup with projection and explicit level-of-detail and offset
@@ -166,5 +166,5 @@ float textureProjLodOffset( sampler1DShadow sampler, vec4 P, float lod, int offs
  * @param lod Specifies the explicit level-of-detail from which to fetch texels. 
  * @param offset Specifies the offset, in texels, to be applied to  before fetching texels. 
  */
-float textureProjLodOffset( sampler2DShadow sampler, vec4 P, float lod, ivec2 offset )
+float textureProjLodOffset( sampler2DShadow sampler, vec4 P, float lod, ivec2 offset ) {}
 

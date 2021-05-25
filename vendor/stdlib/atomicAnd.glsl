@@ -4,7 +4,7 @@
  * @param mem The variable to use as the target of the operation. 
  * @param data The data to be logically ANDed with to . 
  */
-int atomicAnd( inout int mem, int data )
+int atomicAnd( inout int mem, int data ) {}
 
 /**
  * perform an atomic logical AND operation to a variable
@@ -12,5 +12,5 @@ int atomicAnd( inout int mem, int data )
  * @param mem The variable to use as the target of the operation. 
  * @param data The data to be logically ANDed with to . 
  */
-uint atomicAnd( inout uint mem, uint data )
+uint atomicAnd( inout uint mem, uint data ) {}
 

@@ -4,7 +4,7 @@
  * @param mem The variable to use as the target of the operation. 
  * @param data The data to be compared to . 
  */
-int atomicMax( inout int mem, int data )
+int atomicMax( inout int mem, int data ) {}
 
 /**
  * perform an atomic max operation to a variable
@@ -12,5 +12,5 @@ int atomicMax( inout int mem, int data )
  * @param mem The variable to use as the target of the operation. 
  * @param data The data to be compared to . 
  */
-uint atomicMax( inout uint mem, uint data )
+uint atomicMax( inout uint mem, uint data ) {}
 

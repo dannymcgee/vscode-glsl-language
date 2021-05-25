@@ -3,5 +3,5 @@
  * 
  * @param c Specify the handle to the atomic counter to decrement. 
  */
-uint atomicCounterDecrement( atomic_uint c )
+uint atomicCounterDecrement( atomic_uint c ) {}
 

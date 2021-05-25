@@ -15,7 +15,7 @@ import { v1 as uuid } from "uuid";
 import lexer, { Token, TokenType } from "../lexer";
 import { BUILT_INS, EXTENSION_PATH, UNIQUE_BUILT_INS } from "../utility";
 
-const DIAG_PATTERN = /^(ERROR|WARNING): ([0-9]+):([0-9]+): '(.+?)' : (.+)$/;
+const DIAG_PATTERN = /^(ERROR|WARNING): ([0-9]+):([0-9]+): '(.*)' : (.+)$/;
 
 export class Analyzer {
 	private readonly _validatorPath: string;
@@ -97,18 +97,28 @@ export class Analyzer {
 				severity: DiagnosticSeverity.Hint,
 			});
 
-			let builtIns = lexer
-				.tokenize(this._doc)
-				.filter(tok => tok.type === TokenType.Builtin);
-
 			let stage: string|null = null;
+
+			let tokens = lexer.tokenize(this._doc);
+
+			let comments = tokens.filter(tok => tok.type === TokenType.LineComment);
+			let builtIns = tokens.filter(tok => tok.type === TokenType.Builtin);
+
+			let pat = /\bstage:\s*(comp|vert|geom|tesc|tese|frag)\b/
+			let tok: Token|undefined;
+			if ((tok = comments.find(c => pat.test(c.data)))) {
+				stage = tok.data.match(pat)![1];
+			}
+
 			let stageRange: Range;
-			for (let [key, vars] of Object.entries(UNIQUE_BUILT_INS)) {
-				let tok: Token|undefined;
-				if ((tok = builtIns.find(v => vars.includes(v.data)))) {
-					stage = key;
-					stageRange = tok.range;
-					break;
+			if (!stage) {
+				for (let [key, vars] of Object.entries(UNIQUE_BUILT_INS)) {
+					let tok: Token|undefined;
+					if ((tok = builtIns.find(v => vars.includes(v.data)))) {
+						stage = key;
+						stageRange = tok.range;
+						break;
+					}
 				}
 			}
 
@@ -161,44 +171,62 @@ export class Analyzer {
 				}
 			}
 			else {
-				let ext = path.extname(this._fileName);
-				let proposedRename = this._fileName.replace(ext, `.${stage}`);
-				result.push({
-					message: `Inferring stage '${stage}' based on usage of built-in `
-						+ `variable. Diagnostic performance can be improved by renaming `
-						+ `this file to '${proposedRename}'.`,
-					range: stageRange!,
-					severity: DiagnosticSeverity.Information,
-				});
+				if (stageRange!) {
+					let ext = path.extname(this._fileName);
+					let proposedRename = this._fileName.replace(ext, `.${stage}`);
+					result.push({
+						message: `Inferring stage '${stage}' based on usage of built-in `
+							+ `variable. Diagnostic performance can be improved by renaming `
+							+ `this file to '${proposedRename}'.`,
+						range: stageRange,
+						severity: DiagnosticSeverity.Information,
+					});
+				}
 
 				validation = await this._runValidator(filePath, ["-S", stage]);
 			}
 		}
 
-		result.push(...validation
+		validation
 			.split("\n")
 			.slice(1)
 			.map(line => line.trim())
-			.filter(line => DIAG_PATTERN.test(line))
-			.map(msg => {
+			.forEach(msg => {
+				let diag: Diagnostic;
+
+				if (!DIAG_PATTERN.test(msg)) {
+					console.error(msg);
+					return;
+				}
+
 				let m = msg.match(DIAG_PATTERN)!;
-				let sev = m[1] === "ERROR"
-					? DiagnosticSeverity.Error
-					: DiagnosticSeverity.Warning;
-				let lineNum = parseInt(m[3], 10) - 1;
-				let lexeme = m[4];
-				let message = m[5];
+				try {
+					let sev = m[1] === "ERROR"
+						? DiagnosticSeverity.Error
+						: DiagnosticSeverity.Warning;
+					let lineNum = parseInt(m[3], 10);
+					let lexeme = m[4];
+					let message = m[5];
 
-				let line = this._doc.lineAt(lineNum).text;
-				let char = line.indexOf(lexeme);
+					let line = this._doc.lineAt(lineNum);
+					let char = line.text.indexOf(lexeme);
 
-				let range = new Range(
-					new Position(lineNum, char),
-					new Position(lineNum, char + lexeme.length),
-				);
+					let range = char > -1
+						? new Range(
+							new Position(lineNum, char),
+							new Position(lineNum, char + lexeme.length))
+						: line.range;
 
-				return new Diagnostic(range, message, sev);
-			}));
+					diag = new Diagnostic(range, message, sev);
+				}
+				catch (err) {
+					console.error(`Error parsing diagnostic: ${err.message}`);
+					console.error(`Original message: ${msg}`);
+					throw err;
+				}
+
+				result.push(diag);
+			});
 
 		return result;
 	}
